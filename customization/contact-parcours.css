@@ -1,0 +1,100 @@
+.contact {
+  margin-top: 25px;
+  padding: 15px;
+  height: max-content;
+}
+.contact .comment-box {
+  margin: 25px auto 10px;
+  width: 60%;
+  padding: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px 1px#ad5317;
+}
+
+.comment-box p {
+  text-align: center;
+  color: #fff;
+  font-size: 26px;
+}
+.comment-box input {
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  padding: 10px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px #ddd solid;
+  color: #262626;
+}
+.comment-box textarea {
+  font-size: 1.2rem;
+  /* padding: 10px; */
+  max-width: 100%;
+  min-width: 100%;
+  resize: none;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px #ddd solid;
+  color: #262626;
+}
+.comment-box button {
+  display: block;
+  width: 100%;
+  margin: 15px auto 10px auto;
+  max-width: 200px;
+  background-color: #f0f0f0;
+  color: #262626;
+  padding: 5px 0;
+  border: none;
+  font-size: 1.3rem;
+
+  transition: all 0.6s ease-in-out;
+}
+
+.form-c button:hover {
+  background-color: #ad5317;
+  transform: scale(1.1);
+}
+
+/* end contact */
+#parcours {
+  padding-top: 100px;
+  margin-top: -100px;
+}
+.parcours {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.card {
+  margin-top: 15px;
+  background: #ad5317;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  transition: transform 0.8s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.4s;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .project-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  .project-cards {
+    grid-template-columns: 1fr;
+  }
+}

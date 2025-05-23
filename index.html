@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="customization/custom-style.css" />
+    <link rel="stylesheet" href="customization/responsive.css" />
+    <link rel="stylesheet" href="customization/style-two.css" />
+    <link rel="stylesheet" href="customization/competence.css" />
+    <link rel="stylesheet" href="customization/contact-parcours.css" />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <header class="top-header">
+      <h1 class="title"><a href="">Portfolio</a></h1>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li class="hideOnMobile">
+            <a href="#home" class="active">Accueil</a>
+          </li>
+          <li class="hideOnMobile"><a href="#competence">Competences</a></li>
+          <li class="hideOnMobile"><a href="#projects">Projets</a></li>
+          <li class="hideOnMobile">
+            <a href="#parcours">Parcours</a>
+          </li>
+          <li class="hideOnMobile"><a href="#contact">Contact</a></li>
+          <li class="menu-btn" onclick="showSidebar()">
+            <a href="#" class="icon"><i class="bx bx-menu"></i></a>
+          </li>
+        </ul>
+      </nav>
+      <ul class="sidebar nav-links">
+        <li onclick="hideSidebar()">
+          <a href="#" class="icon"><i class="bx bx-x-circle"></i></a>
+        </li>
+        <li><a href="#home" class="active">Accueil</a></li>
+        <li><a href="#skills">Competences</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </header>
+    <section class="home" id="home">
+      <article class="content-home">
+        <h1>Bonjour, je suis</h1>
+        <h2 class="effect">Mouhamed Sow</h2>
+        <h3>Et je suis <span id="text-text"> </span></h3>
+        <p>
+          Actuellement, je suis un jeune étudiant en Master et diplômé d'une
+          Licence en Anglais. En alternance, je suis une formation de
+          développeur Front-end en informatique, guidée par la passion et la
+          curiosité, tout en réalisant l'importance et l'interrelation de ces
+          deux domaines.
+        </p>
+        <div class="social-links">
+          <a
+            href="https://www.instagram.com/sow_mouhamed7/profilecard/?igsh=MWt3czMxMTh1bHZsMg=="
+            ><i class="bx bxl-instagram"></i
+          ></a>
+          <a href="https://whatsapp.com/dl/"><i class="bx bxl-whatsapp"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=100090453776468"
+            ><i class="bx bxl-facebook"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/mouhamed-sow-5786a633b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+            ><i class="bx bxl-linkedin-square"></i
+          ></a>
+        </div>
+        <a class="btn" href="#">Download CV</a>
+      </article>
+      <div class="portrait-home">
+        <img src="/customization/img/portrait.png" alt="" />
+      </div>
+    </section>
+    <section class="competence">
+      <h1 id="competence" class="titles">COMPETENCE</h1>
+      <div class="main-container">
+        <div class="skills">
+          <h2>Anglais</h2>
+          <div class="line skill1">76%</div>
+          <h2>Html</h2>
+          <div class="line skill2">91%</div>
+          <h2>Css</h2>
+          <div class="line skill3">80%</div>
+          <h2>Office<br />(word-excel-pwpt)</h2>
+          <div class="line skill4">60%</div>
+        </div>
+      </div>
+    </section>
+    <section class="parcours">
+      <h1 class="titles" id="parcours">PARCOURS</h1>
+
+      <div class="project-cards">
+        <div class="card">
+          <h1>2019</h1>
+          <h2>Baccalaurèat</h2>
+          <h3>Lycee Charles Degaulle</h3>
+          <p>
+            Au Lycée de Charles Degaulle, on obtient notre Baccalaurèat en
+            Sciences Sociales et Humaines après 3 ans d'etudes.
+          </p>
+        </div>
+
+        <div class="card">
+          <h1>2020</h1>
+          <h2>Certification en Bureautique</h2>
+          <h3>AISE</h3>
+          <p>
+            Je me suis certifié en bureautique en 2020, étant passionné
+            d'informatique, j'ai saisi l'impact et l'importance de
+            l'informatique dans l'évolution du milieu professionnel
+          </p>
+        </div>
+        <div class="card">
+          <h1>2021</h1>
+          <h2>Eaux et Fôret</h2>
+          <h3>Programme Xeyu ndaw gni</h3>
+          <p>
+            2 ans d'experience professionnel en tant qu'agent d'appui dans le
+            service forestier qui ont boosté mes softs skills.
+          </p>
+        </div>
+        <div class="card">
+          <h1>2022</h1>
+          <h2>Licence en Anglais</h2>
+          <h3>UNCHK (ex:UVS)</h3>
+          <p>
+            Á l'université, je choisi comme filière l'Anglais en ayant
+            conscience des atouts qu'offre sa maitrise dans le millieu
+            professionnel
+          </p>
+        </div>
+        <div class="card">
+          <h1>2025</h1>
+          <h2>Certification en Front-end</h2>
+          <h3>Force N</h3>
+          <p>
+            Poussé par la passion grandissante en informatique, je me suis
+            certifié en developpeur front-end
+          </p>
+        </div>
+        <div class="card">
+          <h1>2022-2023</h1>
+          <h2>Eaux et Fôret</h2>
+          <h3>Programme Xeyu ndaw gni</h3>
+          <p>
+            un nouveau contrat d'un ans d'experience professionnel en tant
+            qu'agent d'appui dans le service forestier qui ont boosté mes softs
+            skills.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <div class="main-container">
+        <h1 class="titles">CONTACT</h1>
+        <div class="comment-box">
+          <p>Laisser un commentaire!</p>
+          <form class="form-c">
+            <input type="text" placeholder="Prenom" />
+            <input type="text" placeholder="Nom" />
+            <input type="email" placeholder="email" required />
+            <textarea rows="10" placeholder="votre commentaire"></textarea>
+            <button type="submit">Envoyez!</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="/customization/style.js"></script>
+  </body>
+</html>

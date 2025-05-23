@@ -1,0 +1,80 @@
+#competence {
+  padding-top: 100px;
+  /* Ajustez selon la hauteur de votre header */
+  margin-top: -100px;
+  /* Compense l'espace supplémentaire */
+}
+
+.competence h1 {
+  padding: 14px 0;
+}
+.competence {
+  color: #fff;
+  margin-bottom: 50px;
+  border: #ff5959 2px solid;
+}
+.skills {
+  width: 50%;
+  margin: 0 auto;
+  padding: 25px;
+}
+.skills h2 {
+  font-size: 1.7rem;
+  text-align: justify;
+  text-transform: uppercase;
+  padding: 10px 0;
+  color: #fff;
+}
+
+.line {
+  height: 35px;
+  max-width: 800px;
+  line-height: 35px;
+  font-size: 15px;
+  padding-left: 10px;
+  background: #262626;
+  position: relative;
+  z-index: 1;
+  border-radius: 50px;
+  font-weight: 900;
+  transition: 0.7s;
+  box-shadow: 0 2px 20px rgb(0, 0, 0, 0.5);
+}
+.line::after {
+  content: "";
+  background: linear-gradient(48deg, #ff5959, #d6bb1e);
+  height: 35px;
+  line-height: 35px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  animation: animate infinite 11s;
+  border-radius: 50px;
+}
+.skill1::after {
+  max-width: 76%;
+}
+.skill2::after {
+  max-width: 90%;
+}
+.skill3::after {
+  max-width: 80%;
+}
+.skill4::after {
+  max-width: 60%;
+}
+
+@keyframes animate {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.main-container {
+  width: 88%;
+  margin: 0 auto;
+}
