@@ -1,11 +1,15 @@
 .contact {
+  background-color: rgb(33, 41, 41);
   margin-top: 25px;
   padding: 15px;
   height: max-content;
+  display: flex;
+  justify-content: right;
+  /* margin-left: 175px; */
 }
 .contact .comment-box {
   margin: 25px auto 10px;
-  width: 60%;
+  width: 50%;
   padding: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -32,7 +36,7 @@
   /* padding: 10px; */
   max-width: 100%;
   min-width: 100%;
-  resize: none;
+  resize: vertical;
   width: 100%;
   box-sizing: border-box;
   outline: none;
@@ -60,8 +64,8 @@
 
 /* end contact */
 #parcours {
-  padding-top: 100px;
-  margin-top: -100px;
+  padding-top: 90px;
+  scroll-margin-top: 95px;
 }
 .parcours {
   padding: 20px;
@@ -69,6 +73,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 80px 0;
+  height: 100vh;
 }
 .project-cards {
   display: grid;
@@ -97,4 +103,21 @@
   .project-cards {
     grid-template-columns: 1fr;
   }
+}
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  border: #ad5317 2px solid;
+  gap: 20px;
+  width: 100%;
+}
+.main-container h1 {
+  margin-top: 80px;
+}
+.left-box {
+  width: 50%;
+  padding: 20px;
+  /* background-color: #ad5317; */
+  color: #fff;
+  border-radius: 10px;
 }

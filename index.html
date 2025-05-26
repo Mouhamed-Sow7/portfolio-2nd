@@ -7,11 +7,21 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="customization/custom-style.css" />
     <link rel="stylesheet" href="customization/responsive.css" />
     <link rel="stylesheet" href="customization/style-two.css" />
     <link rel="stylesheet" href="customization/competence.css" />
     <link rel="stylesheet" href="customization/contact-parcours.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
+      integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY="
+      crossorigin="anonymous"
+    />
     <title>Portfolio</title>
   </head>
   <body>
@@ -44,39 +54,76 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </header>
-    <section class="home" id="home">
+    <section class="home " id="home">
       <article class="content-home">
         <h1>Bonjour, je suis</h1>
         <h2 class="effect">Mouhamed Sow</h2>
         <h3>Et je suis <span id="text-text"> </span></h3>
-        <p>
-          Actuellement, je suis un jeune étudiant en Master et diplômé d'une
-          Licence en Anglais. En alternance, je suis une formation de
-          développeur Front-end en informatique, guidée par la passion et la
-          curiosité, tout en réalisant l'importance et l'interrelation de ces
-          deux domaines.
-        </p>
-        <div class="social-links">
-          <a
-            href="https://www.instagram.com/sow_mouhamed7/profilecard/?igsh=MWt3czMxMTh1bHZsMg=="
-            ><i class="bx bxl-instagram"></i
-          ></a>
-          <a href="https://whatsapp.com/dl/"><i class="bx bxl-whatsapp"></i></a>
-          <a href="https://www.facebook.com/profile.php?id=100090453776468"
-            ><i class="bx bxl-facebook"></i
-          ></a>
-          <a
-            href="https://www.linkedin.com/in/mouhamed-sow-5786a633b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-            ><i class="bx bxl-linkedin-square"></i
-          ></a>
+        <div class="tabs">
+          <button class="tab-button active" data-tab="presentation">Présentation
+  
+          </button>
+          <button class="tab-button" data-tab="langues">Langues 
+          </button>
+          <button class="tab-button" data-tab="soft-skills">Soft skills
+            </button>
+          <button class="tab-button" data-tab="passions">Passions
+         </button>
         </div>
+        <div class="drop-box">
+          <span class="droper active "></span>
+          <span class="droper "></span>
+          <span class="droper "></span>
+          <span class="droper "></span>
+        </div>
+        <div class="tab-content " id="presentation">
+          <p>
+            Actuellement, je suis un jeune étudiant en Master et diplômé d'une
+            Licence en Anglais. En alternance, je suis certifié développeur
+             Front-end, guidée par la passion et la
+            curiosité, tout en réalisant 
+            l'importance et l'interrelation de
+            ces deux domaines.
+          </p>
+        </div>
+        <div class="tab-content hidden" id="langues">
+         <div class="langues">
+          <div class="Anglais">
+            <h2>Anglais</h2>
+            <img class="flag" src="./customization/img/FR.png" alt="">
+
+          </div>
+          <div class="Francais">
+            <h2>Français</h2>
+              <img class="flag" src="./customization/img/UK.png" alt="">
+          </div>
+         </div>
+        </div>
+        <div class="tab-content hidden" id="soft-skills">
+          <p>
+              Je suis un jeune étudiant actuellement en Master et titulaire
+              d'une Licence en Anglais. Je suis également inscrit à une
+              formation de développeur Front-end en informatique, guidé par la
+              passion et la curiosité, tout en reconnaissant l'importance et
+              l'interconnexion de ces deux domaines.
+            </p>          </div>
+        <div class="tab-content hidden" id="passions">
+          <p>
+              im a young student currently pursuing a Master's degree and
+              holding a Bachelor's degree in English. I am also enrolled in a
+              Front-end developer training program in computer science, driven
+              by passion and curiosity, while recognizing the significance and
+              interconnection of these two fields.
+            </p> </div>
+      </div>
+      
         <a class="btn" href="#">Download CV</a>
       </article>
       <div class="portrait-home">
         <img src="/customization/img/portrait.png" alt="" />
       </div>
     </section>
-    <section class="competence">
+    <!-- <section class="competence">
       <h1 id="competence" class="titles">COMPETENCE</h1>
       <div class="main-container">
         <div class="skills">
@@ -88,6 +135,124 @@
           <div class="line skill3">80%</div>
           <h2>Office<br />(word-excel-pwpt)</h2>
           <div class="line skill4">60%</div>
+        </div>
+      </div>
+    </section> -->
+    <section class="competence">
+      <h1 id="competence" class="titles">COMPETENCE</h1>
+      <div class="container">
+        <div class="grid">
+          <div class="card">
+            <h2>Web</h2>
+
+            <div class="skill" onmouseenter="fillBar(this, 90)">
+              <div class="skill-name"><i class="fab fa-html5"></i>HTML</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 85)">
+              <div class="skill-name"><i class="fab fa-css3-alt"></i>CSS</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 70)">
+              <div class="skill-name">
+                <i class="fab fa-js-square"></i>JavaScript
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Back-end</h2>
+            <div class="skill" onmouseenter="fillBar(this, 75)">
+              <div class="skill-name"><i class="fa fa-php" aria-hidden="true"></i>PHP</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 60)">
+              <div class="skill-name">
+                <i class="fab fa-node-js"></i>Node.js
+                </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 80)">
+              <div class="skill-name">
+                <i class=""
+                  ><i class="fa fa-postgresql" aria-hidden="true"></i></i
+                >PostgreSQL
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Frameworks</h2>
+            <div class="skill" onmouseenter="fillBar(this, 65)">
+              <div class="skill-name">
+                <i class="fa fa-bootstrap" aria-hidden="true"></i></i>Bootstrap
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 50)">
+              <div class="skill-name">
+                <i class="fa-brands fa-angular"></i>Angular
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 55)">
+              <div class="skill-name"><i class="fa fa-react" aria-hidden="true"></i>React</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Autres</h2>
+            <div class="skill" onmouseenter="fillBar(this, 75)">
+              <div class="skill-name"><i class="fab fa-git-alt"></i>Git</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 85)">
+              <div class="skill-name">
+                <i><img src="./customization/img/Blender_23505.png" alt=""></i>Blender
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 60)">
+              <div class="skill-name"><i class="fab fa-figma"></i>Figma</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -155,9 +320,42 @@
         </div>
       </div>
     </section>
-    <section class="contact" id="contact">
+    <section class="contact section-card" id="contact">
       <div class="main-container">
-        <h1 class="titles">CONTACT</h1>
+        <div class="left-box">
+        <h1 class="titles">Nous contactez</h1>
+          <p>
+            Si vous avez des questions, des suggestions ou si vous souhaitez
+            discuter de projets potentiels, n'hésitez pas à me contacter via le
+            formulaire ci-dessous. Je suis toujours ouvert aux nouvelles
+            opportunités et collaborations.
+          </p>
+          <div class="contact-info">
+            <div class="info-item">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>Adresse: Dakar, Senegal</span>
+            </div>
+            <div class="info-item">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>Email: <a href="mailto:sowhamedou10@gmail.com">Mouhamed Sow</a>
+              </span>
+              <div class="social-links">
+                <a
+                  href="https://www.instagram.com/sow_mouhamed7/profilecard/?igsh=MWt3czMxMTh1bHZsMg=="
+                  target="blank" ><i class="bx bxl-instagram"></i
+                ></a>
+                <a href="https://whatsapp.com/dl/" target="blank"><i class="bx bxl-whatsapp" ></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100090453776468"
+                  ><i class="bx bxl-facebook" ></i
+                ></a>
+                <a target="blank"
+                  href="https://www.linkedin.com/in/mouhamed-sow-5786a633b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                  ><i class="bx bxl-linkedin-square" ></i
+                ></a>
+              </div>
+            </div>
+        </div>
+        </div>
         <div class="comment-box">
           <p>Laisser un commentaire!</p>
           <form class="form-c">

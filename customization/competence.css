@@ -1,80 +1,116 @@
 #competence {
-  padding-top: 100px;
+  padding-top: 60px;
   /* Ajustez selon la hauteur de votre header */
-  margin-top: -100px;
+  margin: 20px 0;
   /* Compense l'espace supplémentaire */
+  scroll-margin-top: 25px;
+}
+.competences {
+  padding: 50px 20px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.competence h1 {
-  padding: 14px 0;
-}
-.competence {
-  color: #fff;
-  margin-bottom: 50px;
-  border: #ff5959 2px solid;
-}
-.skills {
-  width: 50%;
-  margin: 0 auto;
-  padding: 25px;
-}
-.skills h2 {
-  font-size: 1.7rem;
-  text-align: justify;
-  text-transform: uppercase;
-  padding: 10px 0;
-  color: #fff;
-}
-
-.line {
-  height: 35px;
-  max-width: 800px;
-  line-height: 35px;
-  font-size: 15px;
-  padding-left: 10px;
-  background: #262626;
-  position: relative;
-  z-index: 1;
-  border-radius: 50px;
-  font-weight: 900;
-  transition: 0.7s;
-  box-shadow: 0 2px 20px rgb(0, 0, 0, 0.5);
-}
-.line::after {
-  content: "";
-  background: linear-gradient(48deg, #ff5959, #d6bb1e);
-  height: 35px;
-  line-height: 35px;
+.container {
   width: 100%;
+  padding: 2rem;
+  background: linear-gradient(135deg, #832020, #2b1b1b);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  margin: 0 auto;
+  padding-bottom: 85px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  position: relative;
+  top: 50%;
+}
+.card {
+  background: rgb(7, 6, 6);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 4px solid #5317;
+  padding-bottom: 0.5rem;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.skill {
+  margin-bottom: 1.5rem;
+  position: relative;
+  height: 60px;
+  overflow: hidden;
+  cursor: pointer;
+  height: 15vh;
+}
+.skill:last-child {
+  margin-bottom: 0;
+}
+.skill-name,
+.progress-bar-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -2;
-  animation: animate infinite 11s;
-  border-radius: 50px;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  transition: opacity 0.3s ease;
+  padding: 5px;
+  border: 2px solid #ad5317;
+  background: white;
+  color: #000;
+  pointer-events: none;
 }
-.skill1::after {
-  max-width: 76%;
+.progress-bar-container {
+  opacity: 0;
+  border-color: #ad5317;
 }
-.skill2::after {
-  max-width: 90%;
+.skill:hover .skill-name {
+  opacity: 0;
 }
-.skill3::after {
-  max-width: 80%;
+.skill:hover .progress-bar-container {
+  opacity: 1;
+  border-color: #4caf50;
 }
-.skill4::after {
-  max-width: 60%;
+.progress-bar {
+  width: 0;
+  height: 15px;
+  background-color: #4caf50;
+  border-radius: 20px;
+  transition: width 1.3s ease;
+  pointer-events: none;
+}
+.progress-text {
+  margin-left: 10px;
+  font-size: 0.9rem;
+  pointer-events: none;
+  color: #000;
+}
+.skill-name i {
+  margin-right: 8px;
+  color: #ad5317;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
 }
 
-@keyframes animate {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
-}
-.main-container {
-  width: 88%;
-  margin: 0 auto;
+section {
+  /* height: 100vh;
+
+  padding: 2rem;
+  position: relative; */
 }

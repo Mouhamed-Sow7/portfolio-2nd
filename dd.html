@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .presentation-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: sans-serif;
+      }
+/* 
+      .profile-image img {
+        width: 200px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+      } */
+
+      .tabs {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        justify-content: center;
+      }
+
+      .tab-button {
+        padding: 10px 20px;
+        border-radius: 25px;
+        border: 2px solid #ccc;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: bold;
+      }
+
+      .tab-button:hover {
+        background-color: #f0f0f0;
+        border-color: #999;
+      }
+
+      .tab-button.active {
+        background-color: #333;
+        color: #fff;
+        border-color: #333;
+      }
+
+      .tab-content {
+        max-width: 600px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+    <!-- <link rel="stylesheet" href="customization/custom-style.css" /> -->
+  </head>
+
+  <body>
+    <div class="presentation-container">
+      <header class="top-header">
+        <h1 class="title"><a href="">Portfolio</a></h1>
+        <nav class="navbar">
+          <ul class="nav-links">
+            <li class="hideOnMobile">
+              <a href="#home" class="active">Accueil</a>
+            </li>
+            <li class="hideOnMobile"><a href="#competence">Competences</a></li>
+            <li class="hideOnMobile"><a href="#projects">Projets</a></li>
+            <li class="hideOnMobile">
+              <a href="#parcours">Parcours</a>
+            </li>
+            <li class="hideOnMobile"><a href="#contact">Contact</a></li>
+            <li class="menu-btn" onclick="showSidebar()">
+              <a href="#" class="icon"><i class="bx bx-menu"></i></a>
+            </li>
+          </ul>
+        </nav>
+        <ul class="sidebar nav-links">
+          <li onclick="hideSidebar()">
+            <a href="#" class="icon"><i class="bx bx-x-circle"></i></a>
+          </li>
+          <li><a href="#home" class="active">Accueil</a></li>
+          <li><a href="#skills">Competences</a></li>
+          <li><a href="#projects">Projets</a></li>
+          <li><a href="#parcours">Parcours</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </header>
+      <section class="home section-card" id="home">
+        <article class="content-home">
+          <h1>Bonjour, je suis</h1>
+          <h2 class="effect">Mouhamed Sow</h2>
+          <h3>Et je suis <span id="text-text"> </span></h3>
+          <div class="tab-content" id="presentation">
+            <p>
+              Actuellement, je suis un jeune étudiant en Master et diplômé d'une
+              Licence en Anglais. En alternance, je suis une formation de
+              développeur Front-end en informatique, guidée par la passion et la
+              curiosité, tout en réalisant l'importance et l'interrelation de
+              ces deux domaines.
+            </p>
+          </div>
+          <div class="tab-content hidden" id="langues">
+            <p>
+                im a young student currently pursuing a Master's degree and
+                holding a Bachelor's degree in English. I am also enrolled in a
+                Front-end developer training program in computer science, driven
+                by passion and curiosity, while recognizing the significance and
+                interconnection of these two fields.
+              </p>
+          </div>
+          <div class="tab-content hidden" id="soft-skills">
+            <p>
+                Je suis un jeune étudiant actuellement en Master et titulaire
+                d'une Licence en Anglais. Je suis également inscrit à une
+                formation de développeur Front-end en informatique, guidé par la
+                passion et la curiosité, tout en reconnaissant l'importance et
+                l'interconnexion de ces deux domaines.
+              </p>          </div>
+          <div class="tab-content hidden" id="passions">
+            <p>
+                im a young student currently pursuing a Master's degree and
+                holding a Bachelor's degree in English. I am also enrolled in a
+                Front-end developer training program in computer science, driven
+                by passion and curiosity, while recognizing the significance and
+                interconnection of these two fields.
+              </p> </div>
+        </div>
+        <div class="tabs">
+            <button class="tab-button active" data-tab="presentation">
+              Présentation
+            </button>
+            <button class="tab-button" data-tab="langues">Langues</button>
+            <button class="tab-button" data-tab="soft-skills">
+              Soft skills
+            </button>
+            <button class="tab-button" data-tab="passions">Passions</button>
+          </div>
+        </article>
+        <div class="portrait-home">
+          <img src="/customization/img/portrait.png" alt="" />
+        </div>
+      </section>
+    
+    <div class="social-links">
+      <a
+        href="https://www.instagram.com/sow_mouhamed7/profilecard/?igsh=MWt3czMxMTh1bHZsMg=="
+        ><i class="bx bxl-instagram"></i
+      ></a>
+      <a href="https://whatsapp.com/dl/"><i class="bx bxl-whatsapp"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100090453776468"
+        ><i class="bx bxl-facebook"></i></a>
+      <a
+        href="https://www.linkedin.com/in/mouhamed-sow-5786a633b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+        ><i class="bx bxl-linkedin-square"></i
+      ></a>
+    </div>
+  </body>
+  <script>
+ 
+  </script>
+</html>

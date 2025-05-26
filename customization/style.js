@@ -29,3 +29,44 @@ navLinks.forEach((link) => {
     link.classList.add("active");
   });
 });
+function fillBar(skillElement, targetPercent) {
+  const bar = skillElement.querySelector(".progress-bar");
+  const text = skillElement.querySelector(".progress-text");
+  let percent = 0;
+  clearInterval(skillElement._interval);
+  bar.style.width = "0%";
+  text.textContent = "0%";
+
+  skillElement._interval = setInterval(() => {
+    if (percent >= targetPercent) {
+      clearInterval(skillElement._interval);
+    } else {
+      percent++;
+      bar.style.width = percent + "%";
+      text.textContent = percent + "%";
+    }
+  }, 15);
+}
+
+const buttons = document.querySelectorAll(".tab-button");
+const contents = document.querySelectorAll(".tab-content");
+const droppers = document.querySelectorAll(".drop-box .droper");
+
+buttons.forEach((btn, idx) => {
+  btn.addEventListener("click", () => {
+    // 1️⃣ Reset tous les états
+    buttons.forEach((b) => b.classList.remove("active"));
+    contents.forEach((c) => c.classList.add("hidden"));
+    droppers.forEach((d) => d.classList.remove("active"));
+    // on cache tous
+
+    // 2️⃣ Active le bouton et le contenu
+    btn.classList.add("active");
+    document
+      .getElementById(btn.getAttribute("data-tab"))
+      .classList.remove("hidden");
+
+    // 3️⃣ Affiche le triangle correspondant
+    droppers[idx].classList.add("active");
+  });
+});

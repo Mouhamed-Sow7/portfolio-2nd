@@ -9,7 +9,21 @@
     grid-template-columns: 1fr;
   }
 }
-@media (max-width: 768px) {
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .skill {
+    height: 10vh;
+  }
+  .skill-name,
+  .progress-bar-container {
+    font-size: 1.1rem;
+    padding: 2px;
+  }
   .home {
     height: fit-content;
     justify-content: center;
@@ -24,4 +38,47 @@
     width: 60%;
     margin: 0;
   }
+}
+@media screen and (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    padding: 0.7rem;
+  }
+  .skill {
+    height: 10vh;
+  }
+  .skill-name,
+  .progress-bar-container {
+    font-size: 1rem;
+    padding: 2px;
+  }
+}
+
+.drop-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7rem;
+  /* border: 2px solid #ad5317; */
+  height: 35px;
+  width: 100%;
+}
+.droper {
+  width: 35px;
+  height: 30px;
+  background-color: #f0f0f0;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* margin-left: 15px; */
+  opacity: 0;
+  box-shadow: 0 0 20px #ad5317;
+}
+.droper:nth-child(1) {
+  margin-left: 15px;
+}
+.droper:nth-child(2) {
+  margin-left: 15px;
+}
+.droper.active {
+  opacity: 1;
 }
