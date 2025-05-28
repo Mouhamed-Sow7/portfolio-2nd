@@ -48,25 +48,38 @@ function fillBar(skillElement, targetPercent) {
   }, 15);
 }
 
+// === JS ===
 const buttons = document.querySelectorAll(".tab-button");
 const contents = document.querySelectorAll(".tab-content");
 const droppers = document.querySelectorAll(".drop-box .droper");
 
 buttons.forEach((btn, idx) => {
   btn.addEventListener("click", () => {
-    // 1️⃣ Reset tous les états
+    // 1️⃣ Reset de tous les états
     buttons.forEach((b) => b.classList.remove("active"));
-    contents.forEach((c) => c.classList.add("hidden"));
+    contents.forEach((c) => {
+      c.classList.add("hidden");
+      c.style.borderColor = "transparent";
+    });
     droppers.forEach((d) => d.classList.remove("active"));
-    // on cache tous
 
-    // 2️⃣ Active le bouton et le contenu
+    // 2️⃣ Activation du bouton
     btn.classList.add("active");
-    document
-      .getElementById(btn.getAttribute("data-tab"))
-      .classList.remove("hidden");
 
-    // 3️⃣ Affiche le triangle correspondant
+    // 3️⃣ Affichage du contenu correspondant
+    const targetId = btn.getAttribute("data-tab");
+    const content = document.getElementById(targetId);
+    content.classList.remove("hidden");
+
+    // 4️⃣ Synchronisation de la couleur
+    const color = btn.dataset.color;
+    content.style.borderColor = color;
+
+    // 5️⃣ Affichage du triangle dessous
     droppers[idx].classList.add("active");
   });
+});
+window.addEventListener("DOMContentLoaded", () => {
+  const defaultButton = document.querySelector(".tab-button.active");
+  if (defaultButton) defaultButton.click();
 });

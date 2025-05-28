@@ -5,25 +5,11 @@
   .menu-btn {
     display: block;
   }
-  .grid-list {
+  .project-card {
     grid-template-columns: 1fr;
   }
 }
-@media (min-width: 769px) and (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .card {
-    padding: 1rem;
-  }
-  .skill {
-    height: 10vh;
-  }
-  .skill-name,
-  .progress-bar-container {
-    font-size: 1.1rem;
-    padding: 2px;
-  }
+@media (max-width: 1024px) {
   .home {
     height: fit-content;
     justify-content: center;
@@ -37,6 +23,20 @@
     padding: 0;
     width: 60%;
     margin: 0;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .skill {
+    height: 10vh;
+  }
+  .skill-name,
+  .progress-bar-container {
+    font-size: 1.1rem;
+    padding: 2px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -55,30 +55,63 @@
     padding: 2px;
   }
 }
-
-.drop-box {
+.tab-button {
+  /* background-color: #f0f0f0; */
+  /* border: 1px solid #ccc; */
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+/* 1. Base styles */
+.home-content {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.home-content .text-container {
+  flex: 1;
+}
+
+.home-content .image-container {
+  flex: 1;
+  display: flex;
   justify-content: center;
-  gap: 7rem;
-  /* border: 2px solid #ad5317; */
-  height: 35px;
+}
+
+.home-content .image-container img {
   width: 100%;
+  max-width: 400px;
+  height: auto;
 }
-.droper {
-  width: 35px;
-  height: 30px;
-  background-color: #f0f0f0;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* margin-left: 15px; */
-  opacity: 0;
-  box-shadow: 0 0 20px #ad5317;
-}
-.droper:nth-child(1) {
-  margin-left: 15px;
-}
-.droper:nth-child(2) {
-  margin-left: 15px;
-}
-.droper.active {
-  opacity: 1;
+
+/* 2. Responsive for tablets and phones */
+@media screen and (max-width: 768px) {
+  .content-home {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+
+  .portrait-home {
+    margin-top: 1rem;
+  }
+
+  .content-home .text-container h1 {
+    font-size: 2rem;
+  }
+
+  .home-content .text-container p {
+    font-size: 1rem;
+  }
+
+  .home-content button {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
 }

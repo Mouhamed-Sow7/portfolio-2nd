@@ -74,7 +74,7 @@
   justify-content: center;
   align-items: center;
   margin: 80px 0;
-  height: 100vh;
+  /* height: 100vh; */
 }
 .project-cards {
   display: grid;
@@ -116,7 +116,7 @@
 }
 .left-box {
   width: 50%;
-  padding: 20px;
+  padding: 2px 5px;
   /* background-color: #ad5317; */
   color: #fff;
   border-radius: 10px;
