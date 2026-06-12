@@ -1,376 +1,1619 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Mouhamed Sow — Full-Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="customization/custom-style.css" />
-    <link rel="stylesheet" href="customization/style-two.css" />
-    <link rel="stylesheet" href="customization/competence.css" />
-    <link rel="stylesheet" href="customization/contact-parcours.css" />
-    <link rel="stylesheet" href="customization/responsive.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
-      integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY="
-      crossorigin="anonymous"
-    />
-    <title>Portfolio</title>
+    <style>
+      :root {
+        --bg: #0f0f0f;
+        --bg2: #161616;
+        --bg3: #1e1e1e;
+        --gold: #f5c518;
+        --gold2: #d4a800;
+        --white: #f0ede8;
+        --muted: #888;
+        --border: #2a2a2a;
+        --radius: 12px;
+        --font-display: "Space Grotesk", sans-serif;
+        --font-body: "Inter", sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--white);
+        font-family: var(--font-body);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* NAV */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(15, 15, 15, 0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-logo {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: -0.5px;
+      }
+      .nav-logo span {
+        color: var(--gold);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--white);
+      }
+      .nav-cta {
+        background: var(--gold);
+        color: #000;
+        padding: 0.45rem 1.1rem;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: background 0.2s;
+      }
+      .nav-cta:hover {
+        background: var(--gold2);
+      }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+      .hamburger span {
+        width: 22px;
+        height: 2px;
+        background: var(--white);
+        transition: 0.3s;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--bg2);
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 2rem;
+        flex-direction: column;
+        gap: 1.2rem;
+        z-index: 99;
+      }
+      .mobile-menu a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+
+      /* LANG SWITCH */
+      .lang-switch {
+        display: flex;
+        gap: 0.3rem;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 0.2rem;
+      }
+      .lang-btn {
+        padding: 0.3rem 0.6rem;
+        border: none;
+        background: none;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: 0.2s;
+      }
+      .lang-btn.active {
+        background: var(--gold);
+        color: #000;
+      }
+
+      /* HERO */
+      #home {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 0 2rem;
+        padding-top: 80px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 60% 50% at 70% 50%,
+          rgba(245, 197, 24, 0.06) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      .hero-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        padding: 0.35rem 0.9rem;
+        font-size: 0.78rem;
+        color: var(--muted);
+        margin-bottom: 1.5rem;
+      }
+      .hero-tag-dot {
+        width: 7px;
+        height: 7px;
+        background: var(--gold);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+        display: inline-block;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+      }
+      .hero-title {
+        font-family: var(--font-display);
+        font-size: clamp(2.4rem, 5vw, 3.8rem);
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -1.5px;
+        margin-bottom: 1.2rem;
+      }
+      .hero-title .line2 {
+        color: var(--gold);
+      }
+      .hero-sub {
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.7;
+        max-width: 440px;
+        margin-bottom: 2rem;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--gold);
+        color: #000;
+        padding: 0.7rem 1.6rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .btn-primary:hover {
+        background: var(--gold2);
+        transform: translateY(-1px);
+      }
+      .btn-ghost {
+        border: 1px solid var(--border);
+        color: var(--white);
+        padding: 0.7rem 1.6rem;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .btn-ghost:hover {
+        border-color: var(--muted);
+        background: var(--bg3);
+      }
+      .hero-stats {
+        display: flex;
+        gap: 2rem;
+        margin-top: 2.5rem;
+      }
+      .stat {
+        text-align: center;
+      }
+      .stat-num {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--gold);
+      }
+      .stat-label {
+        font-size: 0.75rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .hero-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .avatar-wrap {
+        position: relative;
+        width: 300px;
+        height: 300px;
+      }
+      .avatar-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid var(--border);
+        filter: grayscale(20%);
+      }
+      .avatar-ring {
+        position: absolute;
+        inset: -12px;
+        border-radius: 50%;
+        border: 2px dashed var(--gold);
+        opacity: 0.4;
+        animation: spin 20s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .avatar-badge {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .badge-dot {
+        width: 8px;
+        height: 8px;
+        background: #22c55e;
+        border-radius: 50%;
+      }
+
+      /* SECTIONS */
+      section {
+        padding: 5rem 2rem;
+      }
+      .section-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .section-eyebrow {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 0.8rem;
+      }
+      .section-title {
+        font-family: var(--font-display);
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        margin-bottom: 1rem;
+      }
+      .section-sub {
+        color: var(--muted);
+        max-width: 520px;
+        line-height: 1.7;
+        margin-bottom: 3rem;
+      }
+
+      /* SKILLS */
+      #competence {
+        background: var(--bg2);
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1.5rem;
+      }
+      .skill-card {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        transition: 0.2s;
+      }
+      .skill-card:hover {
+        border-color: var(--gold);
+        transform: translateY(-2px);
+      }
+      .skill-card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 1.2rem;
+      }
+      .skill-card-icon {
+        color: var(--gold);
+        font-size: 1rem;
+        width: 20px;
+        text-align: center;
+      }
+      .skill-card-title {
+        font-family: var(--font-display);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--muted);
+      }
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .skill-pill {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+        transition: 0.2s;
+      }
+      .skill-pill:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      /* PROJECTS */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5rem;
+      }
+      .proj-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: 0.25s;
+        display: flex;
+        flex-direction: column;
+      }
+      .proj-card:hover {
+        border-color: var(--gold);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(245, 197, 24, 0.08);
+      }
+      .proj-img {
+        height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .proj-img-icon {
+        font-size: 2.8rem;
+        color: rgba(245, 197, 24, 0.7);
+      }
+      .proj-badge {
+        position: absolute;
+        top: 0.8rem;
+        right: 0.8rem;
+        background: var(--gold);
+        color: #000;
+        font-size: 0.68rem;
+        font-weight: 700;
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .proj-body {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .proj-title {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      .proj-desc {
+        font-size: 0.875rem;
+        color: var(--muted);
+        line-height: 1.6;
+        flex: 1;
+        margin-bottom: 1.2rem;
+      }
+      .proj-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 1.2rem;
+      }
+      .proj-tag {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 0.2rem 0.6rem;
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: var(--muted);
+      }
+      .proj-links {
+        display: flex;
+        gap: 0.7rem;
+      }
+      .proj-link {
+        flex: 1;
+        text-align: center;
+        padding: 0.5rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+      }
+      .proj-link.live {
+        background: var(--gold);
+        color: #000;
+      }
+      .proj-link.live:hover {
+        background: var(--gold2);
+      }
+      .proj-link.github {
+        border: 1px solid var(--border);
+        color: var(--white);
+      }
+      .proj-link.github:hover {
+        border-color: var(--muted);
+      }
+
+      /* DEREWOL */
+      #derewol {
+        background: linear-gradient(180deg, var(--bg) 0%, #0a0a00 100%);
+      }
+      .derewol-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      .derewol-logo-wrap {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+      }
+      .derewol-logo-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--gold);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        font-size: 1.3rem;
+      }
+      .derewol-brand {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      .derewol-how {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2rem;
+      }
+      .how-title {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--muted);
+        margin-bottom: 1.2rem;
+      }
+      .how-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .how-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+      .step-num {
+        width: 28px;
+        height: 28px;
+        background: var(--gold);
+        color: #000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+      .step-text {
+        font-size: 0.875rem;
+        color: var(--muted);
+        line-height: 1.5;
+        padding-top: 0.2rem;
+      }
+      .derewol-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      /* PARCOURS */
+      #parcours {
+        background: var(--bg2);
+      }
+      .timeline {
+        position: relative;
+        padding-left: 2rem;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--border);
+      }
+      .tl-item {
+        position: relative;
+        margin-bottom: 2.5rem;
+      }
+      .tl-item::before {
+        content: "";
+        position: absolute;
+        left: -2.4rem;
+        top: 0.35rem;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 2px solid var(--border);
+      }
+      .tl-item.active::before {
+        border-color: var(--gold);
+        background: var(--gold);
+      }
+      .tl-year {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.3rem;
+      }
+      .tl-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+      }
+      .tl-place {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-bottom: 0.4rem;
+      }
+      .tl-desc {
+        font-size: 0.85rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      /* CONTACT */
+      #contact {
+        background: var(--bg2);
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .contact-icon {
+        width: 36px;
+        height: 36px;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        font-size: 0.9rem;
+      }
+      .socials {
+        display: flex;
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+      .social-btn {
+        width: 40px;
+        height: 40px;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 1rem;
+        transition: 0.2s;
+      }
+      .social-btn:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        background: var(--bg);
+      }
+      .contact-form-box {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2rem;
+      }
+      .contact-form-box p {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 1.5rem;
+      }
+      .form-fields {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .form-fields input,
+      .form-fields textarea {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        color: var(--white);
+        font-size: 0.9rem;
+        outline: none;
+        font-family: var(--font-body);
+        transition: border-color 0.2s;
+        width: 100%;
+      }
+      .form-fields input:focus,
+      .form-fields textarea:focus {
+        border-color: var(--gold);
+      }
+      .form-fields textarea {
+        resize: vertical;
+      }
+      .form-toast {
+        display: none;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        margin-top: 0.5rem;
+        text-align: center;
+      }
+      .form-toast.success {
+        background: rgba(34, 197, 94, 0.15);
+        border: 1px solid rgba(34, 197, 94, 0.3);
+        color: #22c55e;
+        display: block;
+      }
+      .form-toast.error {
+        background: rgba(239, 68, 68, 0.15);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        color: #ef4444;
+        display: block;
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--bg);
+        border-top: 1px solid var(--border);
+        padding: 2rem;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .nav-links,
+        .nav-cta {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .hero-inner {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 2rem;
+        }
+        .hero-sub {
+          margin: 0 auto 2rem;
+        }
+        .hero-visual {
+          order: -1;
+        }
+        .avatar-wrap {
+          width: 200px;
+          height: 200px;
+        }
+        .hero-stats {
+          justify-content: center;
+        }
+        .hero-actions {
+          justify-content: center;
+        }
+        .derewol-inner {
+          grid-template-columns: 1fr;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        section {
+          padding: 3.5rem 1.2rem;
+        }
+        nav {
+          padding: 0.8rem 1.2rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: 2rem;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body>
-    <header class="top-header">
-      <h1 class="title"><a href="">Portfolio</a></h1>
-      <nav class="navbar">
-        <ul class="nav-links">
-          <li class="hideOnMobile">
-            <a href="#home" class="active">Accueil</a>
-          </li>
-          <li class="hideOnMobile"><a href="#competence">Competences</a></li>
-          <li class="hideOnMobile"><a href="#projects">Projets</a></li>
-          <li class="hideOnMobile">
-            <a href="#parcours">Parcours</a>
-          </li>
-          <li class="hideOnMobile"><a href="#contact">Contact</a></li>
-          <li class="menu-btn" onclick="showSidebar()">
-            <a href="#" class="icon"><i class="bx bx-menu"></i></a>
-          </li>
-        </ul>
-      </nav>
-      <ul class="sidebar nav-links">
-        <li onclick="hideSidebar()">
-          <a href="#" class="icon"><i class="bx bx-x-circle"></i></a>
-        </li>
-        <li><a href="#home" class="active">Accueil</a></li>
-        <li><a href="#skills">Competences</a></li>
-        <li><a href="#projects">Projets</a></li>
-        <li><a href="#parcours">Parcours</a></li>
-        <li><a href="#contact">Contact</a></li>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-logo">MS<span>.</span></div>
+      <ul class="nav-links">
+        <li><a href="#home" data-i18n="nav.home">Home</a></li>
+        <li><a href="#competence" data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="#derewol">Derewol</a></li>
+        <li><a href="#parcours" data-i18n="nav.journey">Journey</a></li>
       </ul>
-    </header>
-    <section class="home " id="home">
-      <article class="content-home">
-        <h1>Bonjour, je suis</h1>
-        <h2 class="effect">Mouhamed Sow</h2>
-        <h3>Et je suis <span id="text-text"> </span></h3>
-        <div class="tabs">
-          <button class="tab-button  active"data-color="#78281f"
-         
-           data-tab="presentation">Présentation
-  
-          </button>
-          <button class="tab-button"  data-color="#7e5109"  data-tab="langues">Langues 
-          </button>
-          <button class="tab-button" data-color=" #2c3e50  " data-tab="soft-skills">Soft skills
-            </button>
-          <button class="tab-button" data-color="#c0392b" data-tab="passions">Passions
-         </button>
+      <div style="display: flex; align-items: center; gap: 1rem">
+        <div class="lang-switch">
+          <button class="lang-btn active" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" onclick="setLang('fr')">FR</button>
         </div>
-        <!-- <div class="drop-box">
-          <span class="droper active "></span>
-          <span class="droper "></span>
-          <span class="droper "></span>
-          <span class="droper "></span>
-        </div> -->
-        <div class="tab-content" id="presentation">
-          <p>
-            Actuellement, je suis un jeune étudiant en Master et diplômé d'une
-            Licence en Anglais. En alternance, je suis certifié développeur
-             Front-end, guidée par la passion et la
-            curiosité, tout en réalisant 
-            l'importance et l'interrelation de
-            ces deux domaines.
+        <a href="#contact" class="nav-cta" data-i18n="nav.contact">Contact</a>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home" onclick="toggleMenu()" data-i18n="nav.home">Home</a>
+      <a href="#competence" onclick="toggleMenu()" data-i18n="nav.skills"
+        >Skills</a
+      >
+      <a href="#projects" onclick="toggleMenu()" data-i18n="nav.projects"
+        >Projects</a
+      >
+      <a href="#derewol" onclick="toggleMenu()">Derewol</a>
+      <a href="#parcours" onclick="toggleMenu()" data-i18n="nav.journey"
+        >Journey</a
+      >
+      <a href="#contact" onclick="toggleMenu()" data-i18n="nav.contact"
+        >Contact</a
+      >
+    </div>
+
+    <!-- HERO -->
+    <section id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-inner">
+        <div>
+          <div class="hero-tag">
+            <span class="hero-tag-dot"></span
+            ><span data-i18n="hero.tag">Available for opportunities</span>
+          </div>
+          <h1 class="hero-title">
+            Mouhamed<br /><span class="line2">Sow</span>
+          </h1>
+          <p class="hero-sub" data-i18n="hero.sub">
+            Full-Stack Developer & SaaS Builder from Senegal. I build real
+            products — deployed, used, and crafted with attention to every
+            detail.
           </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary"
+              ><i class="fa-solid fa-rocket"></i
+              ><span data-i18n="hero.cta1">View Projects</span></a
+            >
+            <a href="#contact" class="btn-ghost"
+              ><i class="fa-solid fa-paper-plane"></i
+              ><span data-i18n="hero.cta2">Get in Touch</span></a
+            >
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-num">4</div>
+              <div class="stat-label" data-i18n="hero.stat1">Live Projects</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">2+</div>
+              <div class="stat-label" data-i18n="hero.stat2">Years Coding</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">∞</div>
+              <div class="stat-label" data-i18n="hero.stat3">Motivation</div>
+            </div>
+          </div>
         </div>
-        <div class="tab-content hidden" id="langues">
-         <div class="langues">
-          <div class="Anglais">
-            <h2>Anglais</h2>
-            <img class="flag" src="./customization/img/FR.png" alt="">
-
-          </div>
-          <div class="Francais">
-            <h2>Français</h2>
-              <img class="flag" src="./customization/img/UK.png" alt="">
-          </div>
-         </div>
-        </div>
-        <div class="tab-content hidden" id="soft-skills">
-          <p>
-              Je suis un jeune étudiant actuellement en Master et titulaire
-              d'une Licence en Anglais. Je suis également inscrit à une
-              formation de développeur Front-end en informatique, guidé par la
-              passion et la curiosité, tout en reconnaissant l'importance et
-              l'interconnexion de ces deux domaines.
-            </p>          </div>
-        <div class="tab-content hidden" id="passions">
-          <p>
-              im a young student currently pursuing a Master's degree and
-              holding a Bachelor's degree in English. I am also enrolled in a
-              Front-end developer training program in computer science, driven
-              by passion and curiosity, while recognizing the significance and
-              interconnection of these two fields.
-            </p> </div>
-            </div>
-      
-        <a class="btn" href="#">Download CV</a>
-      </article>
-      <div class="portrait-home">
-        <img src="/customization/img/portrait.png" alt="" />
-      </div>
-    </section>
-    <!-- <section class="competence">
-      <h1 id="competence" class="titles">COMPETENCE</h1>
-      <div class="main-container">
-        <div class="skills">
-          <h2>Anglais</h2>
-          <div class="line skill1">76%</div>
-          <h2>Html</h2>
-          <div class="line skill2">91%</div>
-          <h2>Css</h2>
-          <div class="line skill3">80%</div>
-          <h2>Office<br />(word-excel-pwpt)</h2>
-          <div class="line skill4">60%</div>
-        </div>
-      </div>
-    </section> -->
-    <section class="competence">
-      <h1 id="competence" class="titles">COMPETENCE</h1>
-      <div class="container">
-        <div class="grid">
-          <div class="card">
-            <h2>Web</h2>
-
-            <div class="skill" onmouseenter="fillBar(this, 90)">
-              <div class="skill-name"><i class="fab fa-html5"></i>HTML</div>
-              <div class="progress-bar-container">
-                <div class="progress-bar"></div>
-                <div class="progress-text">0%</div>
-              </div>
-            </div>
-            <div class="skill" onmouseenter="fillBar(this, 85)">
-              <div class="skill-name"><i class="fab fa-css3-alt"></i>CSS</div>
-              <div class="progress-bar-container">
-                <div class="progress-bar"></div>
-                <div class="progress-text">0%</div>
-              </div>
-            </div>
-            <div class="skill" onmouseenter="fillBar(this, 70)">
-              <div class="skill-name">
-                <i class="fab fa-js-square"></i>JavaScript
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar"></div>
-                <div class="progress-text">0%</div>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <h2>Back-end</h2>
-            <div class="skill" onmouseenter="fillBar(this, 75)">
-              <div class="skill-name"><i class="fa fa-php" aria-hidden="true"></i>PHP</div>
-              <div class="progress-bar-container">
-                <div class="progress-bar"></div>
-                <div class="progress-text">0%</div>
-              </div>
-            </div>
-            <div class="skill" onmouseenter="fillBar(this, 60)">
-              <div class="skill-name">
-                <i class="fab fa-node-js"></i>Node.js
-                </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar"></div>
-                <div class="progress-text">0%</div>
-              </div>
-            </div>
-            <div class="skill" onmouseenter="fillBar(this, 80)">
-              <div class="skill-name">
-                <i class=""
-                  ><i class="fa fa-postgresql" aria-hidden="true"></i></i
-                >PostgreSQL
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar"></div>
-                <div class="progress-text">0%</div>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <h2>Frameworks</h2>
-            <div class="skill" onmouseenter="fillBar(this, 65)">
-              <div class="skill-name">
-                <i class="fa fa-bootstrap" aria-hidden="true"></i></i>Bootstrap
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar"></div>
-                <div class="progress-text">0%</div>
-              </div>
-            </div>
-            <div class="skill" onmouseenter="fillBar(this, 50)">
-              <div class="skill-name">
-                <i class="fa-brands fa-angular"></i>Angular
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar"></div>
-                <div class="progress-text">0%</div>
-              </div>
-            </div>
-            <div class="skill" onmouseenter="fillBar(this, 55)">
-              <div class="skill-name"><i class="fa fa-react" aria-hidden="true"></i>React</div>
-              <div class="progress-bar-container">
-                <div class="progress-bar"></div>
-                <div class="progress-text">0%</div>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <h2>Autres</h2>
-            <div class="skill" onmouseenter="fillBar(this, 75)">
-              <div class="skill-name"><i class="fab fa-git-alt"></i>Git</div>
-              <div class="progress-bar-container">
-                <div class="progress-bar"></div>
-                <div class="progress-text">0%</div>
-              </div>
-            </div>
-            <div class="skill" onmouseenter="fillBar(this, 85)">
-              <div class="skill-name">
-                <i><img src="./customization/img/Blender_23505.png" alt=""></i>Blender
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar"></div>
-                <div class="progress-text">0%</div>
-              </div>
-            </div>
-            <div class="skill" onmouseenter="fillBar(this, 60)">
-              <div class="skill-name"><i class="fab fa-figma"></i>Figma</div>
-              <div class="progress-bar-container">
-                <div class="progress-bar"></div>
-                <div class="progress-text">0%</div>
-              </div>
+        <div class="hero-visual">
+          <div class="avatar-wrap">
+            <img
+              src="https://mouhamed-sow7.nom-de-domaine.xyz/customization/img/profil-2-overlay.jpg"
+              alt="Mouhamed Sow"
+            />
+            <div class="avatar-ring"></div>
+            <div class="avatar-badge">
+              <span class="badge-dot"></span>Open to work
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="parcours section-card">
-      <h1 class="titles "  id="parcours">PARCOURS</h1>
 
-      <div class="project-cards">
-        <div class="card">
-          <h1>2019</h1>
-          <h2>Baccalaurèat</h2>
-          <h3>Lycee Charles Degaulle</h3>
-          <p>
-            Au Lycée de Charles Degaulle, on obtient notre Baccalaurèat en
-            Sciences Sociales et Humaines après 3 ans d'etudes.
-          </p>
-        </div>
-
-        <div class="card">
-          <h1>2020</h1>
-          <h2>Certification en Bureautique</h2>
-          <h3>AISE</h3>
-          <p>
-            Je me suis certifié en bureautique en 2020, étant passionné
-            d'informatique, j'ai saisi l'impact et l'importance de
-            l'informatique dans l'évolution du milieu professionnel
-          </p>
-        </div>
-        <div class="card">
-          <h1>2021</h1>
-          <h2>Eaux et Fôret</h2>
-          <h3>Programme Xeyu ndaw gni</h3>
-          <p>
-            2 ans d'experience professionnel en tant qu'agent d'appui dans le
-            service forestier qui ont boosté mes softs skills.
-          </p>
-        </div>
-        <div class="card">
-          <h1>2022</h1>
-          <h2>Licence en Anglais</h2>
-          <h3>UNCHK (ex:UVS)</h3>
-          <p>
-            Á l'université, je choisi comme filière l'Anglais en ayant
-            conscience des atouts qu'offre sa maitrise dans le millieu
-            professionnel
-          </p>
-        </div>
-        <div class="card">
-          <h1>2025</h1>
-          <h2>Certification en Front-end</h2>
-          <h3>Force N</h3>
-          <p>
-            Poussé par la passion grandissante en informatique, je me suis
-            certifié en developpeur front-end
-          </p>
-        </div>
-        <div class="card">
-          <h1>2022-2023</h1>
-          <h2>Eaux et Fôret</h2>
-          <h3>Programme Xeyu ndaw gni</h3>
-          <p>
-            un nouveau contrat d'un ans d'experience professionnel en tant
-            qu'agent d'appui dans le service forestier qui ont boosté mes softs
-            skills.
-          </p>
+    <!-- SKILLS -->
+    <section id="competence">
+      <div class="section-inner">
+        <p class="section-eyebrow" data-i18n="skills.eyebrow">What I know</p>
+        <h2 class="section-title" data-i18n="skills.title">
+          Skills & Technologies
+        </h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-card-header">
+              <i class="fa-solid fa-display skill-card-icon"></i>
+              <div class="skill-card-title">Frontend</div>
+            </div>
+            <div class="skill-list">
+              <span class="skill-pill">HTML5</span
+              ><span class="skill-pill">CSS3</span
+              ><span class="skill-pill">JavaScript</span>
+              <span class="skill-pill">React</span
+              ><span class="skill-pill">Bootstrap</span
+              ><span class="skill-pill">Tailwind</span>
+              <span class="skill-pill">Angular</span
+              ><span class="skill-pill">PWA</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-header">
+              <i class="fa-solid fa-server skill-card-icon"></i>
+              <div class="skill-card-title">Backend</div>
+            </div>
+            <div class="skill-list">
+              <span class="skill-pill">Node.js</span
+              ><span class="skill-pill">Express</span
+              ><span class="skill-pill">PHP</span>
+              <span class="skill-pill">PostgreSQL</span
+              ><span class="skill-pill">MongoDB</span
+              ><span class="skill-pill">REST API</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-header">
+              <i class="fa-solid fa-wrench skill-card-icon"></i>
+              <div class="skill-card-title">Tools & Deploy</div>
+            </div>
+            <div class="skill-list">
+              <span class="skill-pill">Git</span
+              ><span class="skill-pill">GitHub</span
+              ><span class="skill-pill">Vercel</span>
+              <span class="skill-pill">Render</span
+              ><span class="skill-pill">Electron</span
+              ><span class="skill-pill">Figma</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-header">
+              <i class="fa-solid fa-microchip skill-card-icon"></i>
+              <div class="skill-card-title">AI & Languages</div>
+            </div>
+            <div class="skill-list">
+              <span class="skill-pill">Claude API</span
+              ><span class="skill-pill">OpenAI API</span
+              ><span class="skill-pill">AI Integration</span>
+              <span class="skill-pill">English C1</span
+              ><span class="skill-pill">French Native</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    <section class="contact section-card" id="contact">
-      <div class="main-container">
-        <div class="left-box">
-        <h1 class="titles">Nous contactez</h1>
-          <p>
-            Si vous avez des questions, des suggestions ou si vous souhaitez
-            discuter de projets potentiels, n'hésitez pas à me contacter via le
-            formulaire ci-dessous. Je suis toujours ouvert aux nouvelles
-            opportunités et collaborations.
-          </p>
-          <div class="contact-info">
-            <div class="info-item">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              <span>Adresse: Dakar, Senegal</span>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-inner">
+        <p class="section-eyebrow" data-i18n="projects.eyebrow">What I built</p>
+        <h2 class="section-title" data-i18n="projects.title">Live Projects</h2>
+        <p class="section-sub" data-i18n="projects.sub">
+          Real applications, deployed and running. Every project solves a
+          concrete problem.
+        </p>
+        <div class="projects-grid">
+          <div class="proj-card">
+            <div
+              class="proj-img"
+              style="background: linear-gradient(135deg, #1a1a2e, #16213e)"
+            >
+              <i class="fa-solid fa-utensils proj-img-icon"></i>
+              <span class="proj-badge">Live</span>
             </div>
-            <div class="info-item">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              <span>Email: <a href="mailto:sowhamedou10@gmail.com">Mouhamed Sow</a>
-              </span>
-              <div class="social-links">
+            <div class="proj-body">
+              <div class="proj-title">RestoPlus</div>
+              <div class="proj-desc" data-i18n="proj.restoplus">
+                Restaurant website with shopping cart, payment system, and order
+                management. Full admin panel and responsive interface.
+              </div>
+              <div class="proj-tags">
+                <span class="proj-tag">HTML</span
+                ><span class="proj-tag">CSS</span
+                ><span class="proj-tag">JavaScript</span>
+              </div>
+              <div class="proj-links">
                 <a
-                  href="https://www.instagram.com/sow_mouhamed7/profilecard/?igsh=MWt3czMxMTh1bHZsMg=="
-                  target="blank" ><i class="bx bxl-instagram"></i
-                ></a>
-                <a href="https://whatsapp.com/dl/" target="blank"><i class="bx bxl-whatsapp" ></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100090453776468"
-                  ><i class="bx bxl-facebook" ></i
-                ></a>
-                <a target="blank"
-                  href="https://www.linkedin.com/in/mouhamed-sow-5786a633b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                  ><i class="bx bxl-linkedin-square" ></i
-                ></a>
+                  href="https://restoplus-lakora.onrender.com"
+                  target="_blank"
+                  class="proj-link live"
+                  ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ><span data-i18n="proj.demo">Live Demo</span></a
+                >
+                <a
+                  href="https://github.com/Mouhamed-Sow7/RestoPlus-LaKora"
+                  target="_blank"
+                  class="proj-link github"
+                  ><i class="fa-brands fa-github"></i> GitHub</a
+                >
               </div>
             </div>
-        </div>
-        </div>
-        <div class="comment-box">
-          <p>Laisser un commentaire!</p>
-          <form class="form-c">
-            <input type="text" placeholder="Prenom" />
-            <input type="text" placeholder="Nom" />
-            <input type="email" placeholder="email" required />
-            <textarea rows="10" placeholder="votre commentaire"></textarea>
-            <button type="submit">Envoyez!</button>
-          </form>
+          </div>
+
+          <div class="proj-card">
+            <div
+              class="proj-img"
+              style="
+                background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+              "
+            >
+              <i class="fa-solid fa-clock proj-img-icon"></i>
+              <span class="proj-badge">Live</span>
+            </div>
+            <div class="proj-body">
+              <div class="proj-title">SmartPointage</div>
+              <div class="proj-desc" data-i18n="proj.smartpointage">
+                Attendance management system with QR badge per agent. Real-time
+                tracking, admin dashboard and reporting. Deployed on Render.
+              </div>
+              <div class="proj-tags">
+                <span class="proj-tag">Node.js</span
+                ><span class="proj-tag">PostgreSQL</span
+                ><span class="proj-tag">QR Code</span
+                ><span class="proj-tag">Render</span>
+              </div>
+              <div class="proj-links">
+                <a
+                  href="https://smartpointage.digitalesf.com"
+                  target="_blank"
+                  class="proj-link live"
+                  ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ><span data-i18n="proj.demo">Live Demo</span></a
+                >
+                <a
+                  href="https://github.com/Mouhamed-Sow7/Pamecas-Pointage"
+                  target="_blank"
+                  class="proj-link github"
+                  ><i class="fa-brands fa-github"></i> GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div
+              class="proj-img"
+              style="background: linear-gradient(135deg, #134e5e, #71b280)"
+            >
+              <i class="fa-solid fa-boxes-stacked proj-img-icon"></i>
+              <span class="proj-badge">Live</span>
+            </div>
+            <div class="proj-body">
+              <div class="proj-title">SmartStock</div>
+              <div class="proj-desc" data-i18n="proj.smartstock">
+                Mobile-first commercial stock management PWA. React frontend on
+                Vercel, Node.js backend on Render. Built for small businesses in
+                Senegal.
+              </div>
+              <div class="proj-tags">
+                <span class="proj-tag">React</span
+                ><span class="proj-tag">PWA</span
+                ><span class="proj-tag">Node.js</span
+                ><span class="proj-tag">Vercel</span
+                ><span class="proj-tag">Render</span>
+              </div>
+              <div class="proj-links">
+                <a
+                  href="https://smartstock-pwa-cyan.vercel.app/login"
+                  target="_blank"
+                  class="proj-link live"
+                  ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ><span data-i18n="proj.demo">Live Demo</span></a
+                >
+                <a
+                  href="https://github.com/Mouhamed-Sow7/smartstock-pwa"
+                  target="_blank"
+                  class="proj-link github"
+                  ><i class="fa-brands fa-github"></i> GitHub</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script src="/customization/style.js"></script>
+
+    <!-- DEREWOL -->
+    <section id="derewol">
+      <div class="section-inner">
+        <div class="derewol-inner">
+          <div>
+            <div class="derewol-logo-wrap">
+              <div class="derewol-logo-icon">
+                <i class="fa-solid fa-print"></i>
+              </div>
+              <span class="derewol-brand"
+                >Derewol<span style="color: var(--gold)">Print</span></span
+              >
+            </div>
+            <p class="section-eyebrow">SaaS Product</p>
+            <h2 class="section-title" data-i18n="derewol.title">
+              Print Management, Reimagined
+            </h2>
+            <p class="hero-sub" data-i18n="derewol.sub">
+              A full SaaS combining a desktop Electron app and a PWA. Print
+              shops generate a QR code — customers scan, upload files, and send
+              to the printer. Tokens expire in 30 minutes for security.
+            </p>
+            <div class="derewol-actions">
+              <a
+                href="https://derewol.digitalesf.com"
+                target="_blank"
+                class="btn-primary"
+                ><i class="fa-solid fa-qrcode"></i
+                ><span data-i18n="derewol.try">Try the PWA</span></a
+              >
+              <a
+                href="https://github.com/Mouhamed-Sow7/DerewolProject"
+                target="_blank"
+                class="btn-ghost"
+                ><i class="fa-brands fa-github"></i> GitHub</a
+              >
+            </div>
+          </div>
+          <div class="derewol-how">
+            <div class="how-title" data-i18n="derewol.how">How it works</div>
+            <div class="how-steps">
+              <div class="how-step">
+                <div class="step-num">1</div>
+                <div class="step-text" data-i18n="derewol.step1">
+                  The print shop opens the Electron desktop app and generates a
+                  QR code for their printer.
+                </div>
+              </div>
+              <div class="how-step">
+                <div class="step-num">2</div>
+                <div class="step-text" data-i18n="derewol.step2">
+                  The customer scans the QR code on their phone, opening a
+                  secure 30-minute session.
+                </div>
+              </div>
+              <div class="how-step">
+                <div class="step-num">3</div>
+                <div class="step-text" data-i18n="derewol.step3">
+                  The customer uploads files. They are sent directly to the
+                  printer and deleted after printing.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARCOURS -->
+    <section id="parcours">
+      <div class="section-inner">
+        <p class="section-eyebrow" data-i18n="journey.eyebrow">My path</p>
+        <h2 class="section-title" data-i18n="journey.title">Journey</h2>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-year">2019</div>
+            <div class="tl-title" data-i18n="j.bac">
+              Baccalauréat — Social & Human Sciences
+            </div>
+            <div class="tl-place">Lycée Charles De Gaulle</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2020</div>
+            <div class="tl-title" data-i18n="j.bureautique">
+              IT & Office Certification
+            </div>
+            <div class="tl-place">AISE</div>
+            <div class="tl-desc" data-i18n="j.bureautique.desc">
+              First steps into tech — certified in office tools and computer
+              fundamentals.
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2021–2023</div>
+            <div class="tl-title" data-i18n="j.forest">
+              Field Agent — Forestry Service
+            </div>
+            <div class="tl-place" data-i18n="j.forest.place">
+              Programme Xeyu Ndaw Gni, Senegal
+            </div>
+            <div class="tl-desc" data-i18n="j.forest.desc">
+              2+ years of field experience that sharpened teamwork, discipline
+              and communication.
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2022</div>
+            <div class="tl-title" data-i18n="j.licence">
+              Bachelor's Degree — English Language
+            </div>
+            <div class="tl-place">UNCHK (ex UVS)</div>
+            <div class="tl-desc" data-i18n="j.licence.desc">
+              Strategic choice: English as a lever for international
+              opportunities in tech.
+            </div>
+          </div>
+          <div class="tl-item active">
+            <div class="tl-year">2025</div>
+            <div class="tl-title" data-i18n="j.frontend">
+              Front-End Developer Certification
+            </div>
+            <div class="tl-place">Force N</div>
+            <div class="tl-desc" data-i18n="j.frontend.desc">
+              Certified developer. Building SaaS products, fullstack apps, and
+              AI-powered tools.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-inner">
+        <p class="section-eyebrow" data-i18n="contact.eyebrow">Let's talk</p>
+        <h2 class="section-title" data-i18n="contact.title">Get in Touch</h2>
+        <div class="contact-grid">
+          <div>
+            <p class="section-sub" data-i18n="contact.sub">
+              Open to collaborations, freelance projects, and opportunities in
+              the UK. Response within 24–48h.
+            </p>
+            <div class="contact-info">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                Saint-Louis, Senegal
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                sowhamedou10@gmail.com
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                +221 78 122 03 91
+              </div>
+            </div>
+            <div class="socials">
+              <a
+                href="https://www.linkedin.com/in/mouhamed-sow-5786a633b"
+                target="_blank"
+                class="social-btn"
+                title="LinkedIn"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
+              <a
+                href="https://github.com/Mouhamed-Sow7"
+                target="_blank"
+                class="social-btn"
+                title="GitHub"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a
+                href="https://wa.me/221781220391"
+                target="_blank"
+                class="social-btn"
+                title="WhatsApp"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/sow_mouhamed7/"
+                target="_blank"
+                class="social-btn"
+                title="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="contact-form-box">
+            <p data-i18n="contact.form.intro">
+              Send me a message and I'll get back to you shortly.
+            </p>
+            <div class="form-fields">
+              <input type="text" id="f-name" placeholder="Your name" />
+              <input type="email" id="f-email" placeholder="Email address" />
+              <textarea
+                id="f-message"
+                placeholder="Your message..."
+                rows="4"
+              ></textarea>
+              <button
+                class="btn-primary"
+                onclick="sendMail()"
+                id="sendBtn"
+                style="border: none; cursor: pointer; justify-content: center"
+              >
+                <i class="fa-solid fa-paper-plane"></i
+                ><span data-i18n="contact.send">Send Message</span>
+              </button>
+              <div class="form-toast" id="formToast"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        © 2025 Mouhamed Sow —
+        <span data-i18n="footer.text">Built with passion from Senegal 🇸🇳</span>
+      </p>
+    </footer>
+
+    <script>
+      // ── I18N (FR en dur, zéro API call) ──────────────────────────────────────────
+      const i18n = {
+        en: {
+          "nav.home": "Home",
+          "nav.skills": "Skills",
+          "nav.projects": "Projects",
+          "nav.journey": "Journey",
+          "nav.contact": "Contact",
+          "hero.tag": "Available for opportunities",
+          "hero.sub":
+            "Full-Stack Developer & SaaS Builder from Senegal. I build real products — deployed, used, and crafted with attention to every detail.",
+          "hero.cta1": "View Projects",
+          "hero.cta2": "Get in Touch",
+          "hero.stat1": "Live Projects",
+          "hero.stat2": "Years Coding",
+          "hero.stat3": "Motivation",
+          "skills.eyebrow": "What I know",
+          "skills.title": "Skills & Technologies",
+          "projects.eyebrow": "What I built",
+          "projects.title": "Live Projects",
+          "projects.sub":
+            "Real applications, deployed and running. Every project solves a concrete problem.",
+          "proj.restoplus":
+            "Restaurant website with shopping cart, payment system, and order management. Full admin panel and responsive interface.",
+          "proj.smartpointage":
+            "Attendance management system with QR badge per agent. Real-time tracking, admin dashboard and reporting. Deployed on Render.",
+          "proj.smartstock":
+            "Mobile-first commercial stock management PWA. React frontend on Vercel, Node.js backend on Render. Built for small businesses in Senegal.",
+          "proj.demo": "Live Demo",
+          "derewol.title": "Print Management, Reimagined",
+          "derewol.sub":
+            "A full SaaS combining a desktop Electron app and a PWA. Print shops generate a QR code — customers scan, upload files, and send to the printer. Tokens expire in 30 minutes for security.",
+          "derewol.try": "Try the PWA",
+          "derewol.how": "How it works",
+          "derewol.step1":
+            "The print shop opens the Electron desktop app and generates a QR code for their printer.",
+          "derewol.step2":
+            "The customer scans the QR code on their phone, opening a secure 30-minute session.",
+          "derewol.step3":
+            "The customer uploads files. They are sent directly to the printer and deleted after printing.",
+          "journey.eyebrow": "My path",
+          "journey.title": "Journey",
+          "j.bac": "Baccalauréat — Social & Human Sciences",
+          "j.bureautique": "IT & Office Certification",
+          "j.bureautique.desc":
+            "First steps into tech — certified in office tools and computer fundamentals.",
+          "j.forest": "Field Agent — Forestry Service",
+          "j.forest.place": "Programme Xeyu Ndaw Gni, Senegal",
+          "j.forest.desc":
+            "2+ years of field experience that sharpened teamwork, discipline and communication.",
+          "j.licence": "Bachelor's Degree — English Language",
+          "j.licence.desc":
+            "Strategic choice: English as a lever for international opportunities in tech.",
+          "j.frontend": "Front-End Developer Certification",
+          "j.frontend.desc":
+            "Certified developer. Building SaaS products, fullstack apps, and AI-powered tools.",
+          "contact.eyebrow": "Let's talk",
+          "contact.title": "Get in Touch",
+          "contact.sub":
+            "Open to collaborations, freelance projects, and opportunities in the UK. Response within 24–48h.",
+          "contact.form.intro":
+            "Send me a message and I'll get back to you shortly.",
+          "contact.send": "Send Message",
+          "footer.text": "Built with passion from Senegal 🇸🇳",
+        },
+        fr: {
+          "nav.home": "Accueil",
+          "nav.skills": "Compétences",
+          "nav.projects": "Projets",
+          "nav.journey": "Parcours",
+          "nav.contact": "Contact",
+          "hero.tag": "Disponible pour des opportunités",
+          "hero.sub":
+            "Développeur Full-Stack & créateur de SaaS depuis le Sénégal. Je construis de vrais produits — déployés, utilisés, et pensés dans les moindres détails.",
+          "hero.cta1": "Voir les projets",
+          "hero.cta2": "Me contacter",
+          "hero.stat1": "Projets en ligne",
+          "hero.stat2": "Ans de code",
+          "hero.stat3": "Motivation",
+          "skills.eyebrow": "Ce que je maîtrise",
+          "skills.title": "Compétences & Technologies",
+          "projects.eyebrow": "Ce que j'ai construit",
+          "projects.title": "Projets en ligne",
+          "projects.sub":
+            "De vraies applications, déployées et fonctionnelles. Chaque projet résout un problème concret.",
+          "proj.restoplus":
+            "Site de restaurant avec panier d'achat, système de paiement et gestion des commandes. Interface admin complète et responsive.",
+          "proj.smartpointage":
+            "Système de gestion des présences avec badge QR par agent. Suivi en temps réel, tableau de bord admin et rapports. Déployé sur Render.",
+          "proj.smartstock":
+            "PWA de gestion commerciale mobile-first. Frontend React sur Vercel, backend Node.js sur Render. Conçu pour les petites entreprises au Sénégal.",
+          "proj.demo": "Voir le projet",
+          "derewol.title": "La gestion d'impression réinventée",
+          "derewol.sub":
+            "Un SaaS complet combinant une app desktop Electron et une PWA. Les imprimeries génèrent un QR code — le client scanne, envoie ses fichiers. Les tokens expirent en 30 minutes pour la sécurité.",
+          "derewol.try": "Essayer la PWA",
+          "derewol.how": "Comment ça fonctionne",
+          "derewol.step1":
+            "L'imprimerie ouvre l'app desktop Electron et génère un QR code pour son imprimante.",
+          "derewol.step2":
+            "Le client scanne le QR code depuis son téléphone, ouvrant une session sécurisée de 30 minutes.",
+          "derewol.step3":
+            "Le client envoie ses fichiers. Ils sont transmis directement à l'imprimante et supprimés après impression.",
+          "journey.eyebrow": "Mon chemin",
+          "journey.title": "Parcours",
+          "j.bac": "Baccalauréat — Sciences Sociales et Humaines",
+          "j.bureautique": "Certification en Bureautique",
+          "j.bureautique.desc":
+            "Premiers pas dans la tech — certifié en outils bureautiques et informatique.",
+          "j.forest": "Agent d'appui — Service forestier",
+          "j.forest.place": "Programme Xeyu Ndaw Gni, Sénégal",
+          "j.forest.desc":
+            "Plus de 2 ans d'expérience terrain qui ont renforcé le travail d'équipe, la discipline et la communication.",
+          "j.licence": "Licence en Langue Anglaise",
+          "j.licence.desc":
+            "Choix stratégique : l'anglais comme levier pour des opportunités internationales dans la tech.",
+          "j.frontend": "Certification Développeur Front-End",
+          "j.frontend.desc":
+            "Développeur certifié. Construction de SaaS, applications fullstack et outils boostés à l'IA.",
+          "contact.eyebrow": "Parlons-en",
+          "contact.title": "Me contacter",
+          "contact.sub":
+            "Ouvert aux collaborations, projets freelance et opportunités au Royaume-Uni. Réponse sous 24–48h.",
+          "contact.form.intro":
+            "Envoyez-moi un message, je vous réponds rapidement.",
+          "contact.send": "Envoyer",
+          "footer.text": "Construit avec passion depuis le Sénégal 🇸🇳",
+        },
+      };
+
+      let currentLang = "en";
+
+      function applyLang(lang) {
+        const data = i18n[lang];
+        if (!data) return;
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (data[key]) el.textContent = data[key];
+        });
+        document.documentElement.lang = lang;
+        document
+          .querySelectorAll(".lang-btn")
+          .forEach((b) =>
+            b.classList.toggle(
+              "active",
+              b.textContent.trim() === lang.toUpperCase(),
+            ),
+          );
+      }
+
+      function setLang(lang) {
+        if (lang === currentLang) return;
+        currentLang = lang;
+        applyLang(lang);
+      }
+
+      function toggleMenu() {
+        document.getElementById("mobileMenu").classList.toggle("open");
+      }
+
+      window.addEventListener("scroll", () => {
+        document.querySelector("nav").style.borderBottomColor =
+          window.scrollY > 50 ? "rgba(245,197,24,0.15)" : "var(--border)";
+      });
+
+      // ── CONTACT FORM → backend Node.js ────────────────────────────────────────────
+      // Remplace l'URL ci-dessous par ton URL Render une fois déployé
+      const BACKEND_URL = "http://localhost:3001/send";
+
+      async function sendMail() {
+        const name = document.getElementById("f-name").value.trim();
+        const email = document.getElementById("f-email").value.trim();
+        const message = document.getElementById("f-message").value.trim();
+        const toast = document.getElementById("formToast");
+        const btn = document.getElementById("sendBtn");
+
+        if (!name || !email || !message) {
+          toast.className = "form-toast error";
+          toast.textContent =
+            currentLang === "fr"
+              ? "Veuillez remplir tous les champs."
+              : "Please fill in all fields.";
+          return;
+        }
+
+        btn.style.opacity = "0.6";
+        btn.style.pointerEvents = "none";
+        toast.className = "form-toast";
+        toast.textContent = "";
+
+        try {
+          const res = await fetch(BACKEND_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, message }),
+          });
+          if (res.ok) {
+            toast.className = "form-toast success";
+            toast.textContent =
+              currentLang === "fr"
+                ? "Message envoyé ! Je vous réponds sous 24h."
+                : "Message sent! I'll reply within 24h.";
+            document.getElementById("f-name").value = "";
+            document.getElementById("f-email").value = "";
+            document.getElementById("f-message").value = "";
+          } else {
+            throw new Error("Server error");
+          }
+        } catch (e) {
+          toast.className = "form-toast error";
+          toast.textContent =
+            currentLang === "fr"
+              ? "Erreur d'envoi. Contactez-moi directement par email."
+              : "Send error. Contact me directly by email.";
+        }
+        btn.style.opacity = "1";
+        btn.style.pointerEvents = "auto";
+      }
+
+      applyLang("en");
+    </script>
   </body>
 </html>

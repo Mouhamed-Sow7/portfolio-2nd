@@ -1,3 +1,14 @@
+/* Base responsive adjustments */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
 @media (max-width: 810px) {
   .hideOnMobile {
     display: none;
@@ -8,21 +19,94 @@
   .project-card {
     grid-template-columns: 1fr;
   }
+
+  .top-header {
+    padding: 10px 20px;
+    width: 100%;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 40px 30px 30px 30px;
+  }
+
+  .sidebar a {
+    font-size: 1.4rem;
+    padding: 18px 25px;
+  }
+  /* Smaller link size to fit controls */
+  .sidebar a {
+    font-size: 1.2rem;
+    padding: 14px 18px;
+  }
+  .sidebar .sidebar-controls {
+    flex-wrap: wrap;
+  }
+  .sidebar .theme-toggle,
+  .sidebar .lang-toggle {
+    flex: 1 1 48%;
+    justify-content: center;
+  }
+
+  /* Hide toggle buttons on mobile navbar */
+  .navbar .theme-toggle,
+  .navbar .lang-toggle {
+    display: none;
+  }
+
+  /* Show toggle buttons in sidebar */
+  .sidebar .theme-toggle,
+  .sidebar .lang-toggle {
+    display: flex;
+  }
+
+  /* Ensure all sections are properly centered and consistent */
+  .competence,
+  .projects,
+  .parcours,
+  .contact,
+  .about {
+    min-height: 100vh;
+    padding: 120px 20px 80px 20px;
+    margin: 0;
+    box-sizing: border-box;
+  }
 }
 @media (max-width: 1024px) {
   .home {
-    height: fit-content;
-    justify-content: center;
+    min-height: 100vh;
+    justify-content: flex-start;
     flex-direction: column-reverse;
-    margin: 150px auto 0;
+    margin: 0;
+    padding: 120px 20px 80px 20px;
+    gap: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    top: 85px;
   }
   .content-home {
     padding: 5px;
+    width: 100%;
+    max-width: 100%;
+    /* margin-top: 68px; */
   }
-  .portrait-img {
+  .portrait-home {
     padding: 0;
     width: 60%;
-    margin: 0;
+    margin: 0 auto 85px;
+    justify-content: center;
+  }
+
+  .portrait-home img {
+    width: 100%;
+    max-width: 350px;
+    /* height: 380px; */
+    border-radius: 50%;
+    object-fit: cover;
   }
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -39,7 +123,68 @@
     padding: 2px;
   }
 }
+/* iPhone XR and similar devices (414px width) */
+@media screen and (max-width: 414px) {
+  .home {
+    padding: 0 15px;
+    margin: 120px auto 0;
+  }
+
+  .content-home {
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .content-home h1 {
+    font-size: 1.8rem;
+  }
+
+  .content-home h2 {
+    font-size: 2.5rem;
+  }
+
+  .content-home h3 {
+    font-size: 1.3rem;
+  }
+
+  .competence {
+    padding: 60px 15px;
+  }
+
+  .projects {
+    padding: 60px 15px;
+  }
+
+  .parcours {
+    padding: 60px 15px;
+  }
+
+  .contact {
+    padding: 60px 15px;
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .home {
+    padding: 0 20px;
+  }
+
+  .competence {
+    padding: 60px 20px;
+  }
+
+  .projects {
+    padding: 60px 20px;
+  }
+
+  .parcours {
+    padding: 60px 20px;
+  }
+
+  .contact {
+    padding: 60px 20px;
+  }
+
   .grid {
     grid-template-columns: 1fr;
   }
@@ -98,6 +243,28 @@
 
   .portrait-home {
     margin-top: 1rem;
+    justify-content: center;
+  }
+
+  .portrait-home img {
+    max-width: 400px;
+    /* height: 350px; */
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* Info panel grows naturally on mobile */
+  .info-scroll {
+    height: auto;
+  }
+  .tab-content {
+    height: auto;
+    padding: 15px;
+    overflow: visible;
+  }
+  .portrait-home {
+    position: static;
+    top: auto;
   }
 
   .content-home .text-container h1 {
@@ -113,5 +280,482 @@
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
     border-radius: 8px;
+  }
+}
+/* Tab content général */
+/* .tab-content {
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: #fdfdfd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease;
+} */
+
+/* Liste soft skills et passions */
+.skills-list,
+.passions-list {
+  padding: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.skills-list h2,
+.passions-list h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  /* color: #333; */
+}
+
+.skills-list ul,
+.passions-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.skills-list li,
+.passions-list li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+  /* color: #444; */
+  font-weight: 500;
+}
+
+.skills-list li::before,
+.passions-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* color: #c0392b; */
+  font-size: 1rem;
+}
+
+/* Tab active effect */
+/* .tab-button.active {
+  border-bottom: 3px solid currentColor;
+  font-weight: bold;
+  color: #fff;
+} */
+
+/* Optional: Smooth color transitions */
+.tab-button {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Responsive adjustments for tab content */
+@media screen and (max-width: 768px) {
+  .info-scroll {
+    height: 260px;
+  }
+  .tab-content {
+    height: 260px;
+    padding: 15px;
+    overflow-y: auto;
+  }
+
+  .langues {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  /* .Anglais,
+  .Francais {
+    max-width: 100%;
+  } */
+
+  /* .flag {
+    width: 80px;
+    height: 55px;
+    margin: 0 20px;
+  } */
+
+  .skills-grid,
+  .passions-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .skill-item,
+  .passion-item {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Contact Section Responsive - Complete Rework */
+@media screen and (max-width: 768px) {
+  .contact .main-container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0;
+  }
+
+  .contact .left-box {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .contact .comment-box {
+    width: 100%;
+    padding: 0;
+  }
+
+  .contact .txt {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .contact .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .contact .item-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .contact .info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    font-size: 1rem;
+  }
+
+  .contact .social-title {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .contact .social-title h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .contact .social-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .contact .social-links a {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+
+  .contact .form-c {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contact .form-c input,
+  .contact .form-c textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  .contact .form-c textarea {
+    height: 120px;
+    resize: vertical;
+  }
+
+  .contact .form-c button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ad5317, #a14d15);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .contact .form-c button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(173, 83, 23, 0.3);
+  }
+}
+
+/* iPhone XR Specific Contact Adjustments */
+@media screen and (max-width: 414px) {
+  .contact {
+    padding: 40px 15px;
+  }
+
+  .contact .titles {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .contact .txt {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+
+  .contact .info-item {
+    font-size: 0.9rem;
+  }
+
+  .contact .social-links a {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .contact .form-c input,
+  .contact .form-c textarea {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .contact .form-c button {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+/* Parcours Section Responsive */
+@media screen and (max-width: 768px) {
+  .parcours .project-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0;
+  }
+
+  .parcours .card {
+    padding: 20px;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .parcours .card h1 {
+    font-size: 1.5rem;
+  }
+
+  .parcours .card h2 {
+    font-size: 1.3rem;
+  }
+
+  .parcours .card h3 {
+    font-size: 1.1rem;
+  }
+
+  .parcours .card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .parcours .card {
+    padding: 15px;
+  }
+
+  .parcours .card h1 {
+    font-size: 1.3rem;
+  }
+
+  .parcours .card h2 {
+    font-size: 1.2rem;
+  }
+
+  .parcours .card h3 {
+    font-size: 1rem;
+  }
+
+  .parcours .card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Projects Carousel Responsive */
+@media screen and (max-width: 768px) {
+  .projects .titles {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .project-image {
+    height: 250px;
+  }
+
+  .project-info {
+    padding: 20px;
+  }
+
+  .project-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .project-info p {
+    font-size: 1rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-project,
+  .btn-github {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .prev-btn {
+    left: -20px;
+  }
+
+  .next-btn {
+    right: -20px;
+  }
+
+  .project-tech span {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .projects .titles {
+    font-size: 1.8rem;
+  }
+
+  .project-image {
+    height: 200px;
+  }
+
+  .project-info {
+    padding: 15px;
+  }
+
+  .project-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .project-info p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .prev-btn {
+    left: -17px;
+  }
+
+  .next-btn {
+    right: -17px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .carousel-dots {
+    gap: 8px;
+  }
+}
+
+/* Popup Responsive */
+@media screen and (max-width: 768px) {
+  .popup-content {
+    padding: 30px 20px;
+    max-width: 90%;
+    margin: 20px;
+  }
+
+  .popup-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .popup-content p {
+    font-size: 1rem;
+  }
+
+  .popup-icon i {
+    font-size: 3rem;
+  }
+
+  .popup-btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .popup-content {
+    padding: 25px 15px;
+    max-width: 95%;
+  }
+
+  .popup-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .popup-content p {
+    font-size: 0.95rem;
+  }
+
+  .popup-icon i {
+    font-size: 2.5rem;
+  }
+
+  .popup-contact-info {
+    padding: 15px;
+  }
+
+  .popup-contact-info p {
+    font-size: 0.9rem;
+  }
+}
+
+/* iPhone SE and very small screens */
+@media screen and (max-width: 360px) {
+  .sidebar a {
+    font-size: 1rem;
+    padding: 12px 14px;
+  }
+  .sidebar .theme-toggle,
+  .sidebar .lang-toggle {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    flex: 1 1 100%;
+  }
+  .sidebar-controls {
+    gap: 8px;
   }
 }

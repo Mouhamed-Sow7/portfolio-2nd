@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
+    integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY="
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="customization/main.css">
+  <link rel="stylesheet" href="customization/competence.css" />
+  <link rel="stylesheet" href="customization/contact-parcours.css" />
+  <link rel="stylesheet" href="customization/projects.css" />
+  <link rel="stylesheet" href="customization/responsive.css" />
+  
+  <!-- Typed.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <header class="top-header">
+      <h1 class="title"><a href="">Portfolio</a></h1>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li class="hideOnMobile">
+            <a href="#home" class="active" data-translate="nav.home">Accueil</a>
+          </li>
+          <li class="hideOnMobile"><a href="#competence" data-translate="nav.competences">Competences</a></li>
+          <li class="hideOnMobile"><a href="#projects" data-translate="nav.projects">Projets</a></li>
+          <li class="hideOnMobile">
+            <a href="#parcours" data-translate="nav.parcours">Parcours</a>
+          </li>
+          <li class="hideOnMobile"><a href="#contact" data-translate="nav.contact">Contact</a></li>
+          <li class="hideOnMobile">
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+              <i class="bx bx-moon" id="theme-icon"></i>
+            </button>
+          </li>
+          <li class="hideOnMobile">
+            <button class="lang-toggle" onclick="toggleLanguage(true)" title="Toggle Language">
+              <span id="lang-text">EN</span>
+            </button>
+          </li>
+          <li class="menu-btn" onclick="showSidebar()">
+            <a href="javascript:void(0)" class="icon"><i class="bx bx-menu"></i></a>
+          </li>
+        </ul>
+      </nav>
+      <ul class="sidebar nav-links">
+        <li onclick="hideSidebar()">
+          <a href="javascript:void(0)" class="icon"><i class="bx bx-x-circle"></i></a>
+        </li>
+        <li><a href="#home" class="active" data-translate="nav.home">Accueil</a></li>
+        <li><a href="#competence" data-translate="nav.competences">Competences</a></li>
+        <li><a href="#projects" data-translate="nav.projects">Projets</a></li>
+        <li><a href="#parcours" data-translate="nav.parcours">Parcours</a></li>
+        <li><a href="#contact" data-translate="nav.contact">Contact</a></li>
+        <li class="sidebar-controls">
+          <button class="theme-toggle sidebar-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+            <i class="bx bx-moon" id="theme-icon-mobile"></i>
+            <span data-translate="nav.theme">Mode</span>
+          </button>
+          <button class="lang-toggle sidebar-toggle" onclick="toggleLanguage(true)" title="Toggle Language">
+            <span id="lang-text-mobile">EN</span>
+            <span data-translate="nav.language">Langue</span>
+          </button>
+        </li>
+      </ul>
+    </header>
+    <section class="home " id="home">
+      <article class="content-home">
+        <h1 data-translate="hero.greeting">Bonjour, je suis</h1>
+        <h2 class="effect">Mouhamed Sow</h2>
+        <h3 data-translate="hero.and">Et je suis <span id="text-text"></span></h3>
+
+        <div class="info-card">
+          <div class="intro-block">
+            <p data-translate="hero.intro">
+              Étudiant en Master et diplômé d'une Licence en Anglais, je suis certifié développeur Front-end. Ma passion pour les langues et la tech me permet de combiner ces deux univers pour créer et innover.
+            </p>
+            <a class="btn" href="#about" data-translate="hero.learnMore">En savoir plus</a>
+          </div>
+        </div>
+      </article>
+        
+        <div class="portrait-home">
+          <img src="customization/img/profil-2-overlay.jpg" alt="Portrait Mouhamed" />
+        </div>
+        
+    </section>
+  
+    <section id="about" class="about section-card">
+      <h1 class="titles" data-translate="about.title">À PROPOS</h1>
+      <div class="about-grid">
+        <div class="about-card">
+          <h2 data-translate="about.languages">Langues</h2>
+          <div class="about-languages">
+            <div class="lang-item">
+              <div>
+              <div class="flag-title">
+                <div class="imgf"><img class="flag" src="./customization/img/UK.png" alt="Uk" /></div><h3 data-translate="about.english">Anglais</h3></div>  
+                <p data-translate="about.englishDesc">Courant, communication efficace en contexte international.</p>
+              </div>
+            </div>
+            <div class="lang-item">
+             
+              <div>
+                <div class="flag-title">
+                <div class="imgf"><img class="flag" src="./customization/img/FR.png" alt="FR" /></div>
+                  <h3 data-translate="about.french">Français</h3></div>  
+               
+                <p data-translate="about.frenchDesc">Langue officiel du Sénégal, usage quotidien, maîtrise écrite et orale.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <h2 data-translate="about.softSkills">Soft skills</h2>
+          <ul class="bulleted two-col">
+            <li data-translate="about.skill1">Engagement et sens des responsabilités</li>
+            <li data-translate="about.skill2">Esprit d'équipe et collaboration</li>
+            <li data-translate="about.skill3">Communication claire et synthèse</li>
+            <li data-translate="about.skill4">Gestion du stress et patience</li>
+            <li data-translate="about.skill5">Curiosité et apprentissage continu</li>
+          </ul>
+        </div>
+
+        <div class="about-card">
+          <h2 data-translate="about.passions">Passions</h2>
+          <ul class="bulleted two-col">
+            <li data-translate="about.passion1">Jeux vidéo (God of War, Uncharted...)</li>
+            <li data-translate="about.passion2">Animes (Naruto, Solo Leveling, MHA...)</li>
+            <li data-translate="about.passion3">Science & espace</li>
+            <li data-translate="about.passion4">Découverte culinaire</li>
+            <li data-translate="about.passion5">Voyage & cultures</li>
+            <li data-translate="about.passion6">Gadgets & innovations</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="competence">
+      <h1 id="competence" class="titles">COMPETENCE</h1>
+      <div class="container">
+        <div class="grid">
+          <div class="card">
+            <h2>Web</h2>
+
+            <div class="skill" onmouseenter="fillBar(this, 90)">
+              <div class="skill-name"><i class="fab fa-html5"></i>HTML</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 85)">
+              <div class="skill-name"><i class="fab fa-css3-alt"></i>CSS</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 70)">
+              <div class="skill-name">
+                <i class="fab fa-js-square"></i>JavaScript
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Back-end</h2>
+            <div class="skill" onmouseenter="fillBar(this, 75)">
+              <div class="skill-name"><i class="fa fa-php" aria-hidden="true"></i>PHP</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 60)">
+              <div class="skill-name">
+                <i class="fab fa-node-js"></i>Node.js
+                </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 80)">
+              <div class="skill-name">
+                <i class=""
+                  ><i class="fa fa-postgresql" aria-hidden="true"></i></i
+                >PostgreSQL
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Frameworks</h2>
+            <div class="skill" onmouseenter="fillBar(this, 65)">
+              <div class="skill-name">
+                <i class="fa fa-bootstrap" aria-hidden="true"></i></i>Bootstrap
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 50)">
+              <div class="skill-name">
+                <i class="fa-brands fa-angular"></i>Angular
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 55)">
+              <div class="skill-name"><i class="fa fa-react" aria-hidden="true"></i>React</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Autres</h2>
+            <div class="skill" onmouseenter="fillBar(this, 75)">
+              <div class="skill-name"><i class="fab fa-git-alt"></i>Git</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 85)">
+              <div class="skill-name">
+                <i><img src="./customization/img/Blender_23505.png" alt=""></i>Blender
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+            <div class="skill" onmouseenter="fillBar(this, 60)">
+              <div class="skill-name"><i class="fab fa-figma"></i>Figma</div>
+              <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+   
+    <section class="projects" id="projects">
+      <h1 class="titles">MES PROJETS</h1>
+      <div class="carousel-container">
+        <div class="carousel-wrapper">
+          <div class="carousel-track" id="carouselTrack">
+            <!-- Project 1 -->
+            <div class="project-slide active">
+              <div class="project-image">
+                <img src="customization/img/restoplus.png" alt="E-commerce Website">
+                <div class="project-overlay">
+                  <div class="project-tech">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>RestoPlus</h3>
+                <p>Site de restauration avec panier d'achat, système de paiement et gestion des commandes (page admin) Interface responsive et intuitive.</p>
+                <div class="project-links">
+                  <a href="https://restoplus-lakora.onrender.com" class="btn-project">Voir le projet</a>
+                  <a href="#" class="btn-github">GitHub</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-slide">
+              <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=400&fit=crop" alt="Portfolio Dashboard">
+                <div class="project-overlay">
+                  <div class="project-tech">
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>MongoDB</span>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>Portfolio Dashboard</h3>
+                <p>Tableau de bord interactif pour gestion de portfolio avec graphiques en temps réel et analyses de performance.</p>
+                <div class="project-links">
+                  <a href="#" class="btn-project">Voir le projet</a>
+                  <a href="#" class="btn-github">GitHub</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-slide">
+              <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop" alt="Task Management App">
+                <div class="project-overlay">
+                  <div class="project-tech">
+                    <span>Vue.js</span>
+                    <span>Express</span>
+                    <span>PostgreSQL</span>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>Task Management App</h3>
+                <p>Application de gestion de tâches collaborative avec notifications en temps réel et système de commentaires.</p>
+                <div class="project-links">
+                  <a href="#" class="btn-project">Voir le projet</a>
+                  <a href="#" class="btn-github">GitHub</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-slide">
+              <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop" alt="Weather App">
+                <div class="project-overlay">
+                  <div class="project-tech">
+                    <span>JavaScript</span>
+                    <span>API</span>
+                    <span>CSS3</span>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>Weather App</h3>
+                <p>Application météo avec géolocalisation, prévisions 7 jours et cartes interactives. Design moderne et fonctionnel.</p>
+                <div class="project-links">
+                  <a href="#" class="btn-project">Voir le projet</a>
+                  <a href="#" class="btn-github">GitHub</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-slide">
+              <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop" alt="Blog Platform">
+                <div class="project-overlay">
+                  <div class="project-tech">
+                    <span>Angular</span>
+                    <span>Firebase</span>
+                    <span>TypeScript</span>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>Blog Platform</h3>
+                <p>Plateforme de blog avec éditeur markdown, système de commentaires et authentification utilisateur sécurisée.</p>
+                <div class="project-links">
+                  <a href="#" class="btn-project">Voir le projet</a>
+                  <a href="#" class="btn-github">GitHub</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Navigation Dots -->
+        <div class="carousel-dots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+          <span class="dot" data-slide="3"></span>
+          <span class="dot" data-slide="4"></span>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="carousel-btn prev-btn" id="prevBtn" title="Précédent" aria-label="Précédent">
+          <i class="bx bx-chevron-left"></i>
+          <span class="sr-only">Précédent</span>
+        </button>
+        <button class="carousel-btn next-btn" id="nextBtn" title="Suivant" aria-label="Suivant">
+          <i class="bx bx-chevron-right"></i>
+          <span class="sr-only">Suivant</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="parcours section-card">
+      <h1 class="titles "  id="parcours">PARCOURS</h1>
+
+      <div class="project-cards">
+        <div class="card">
+          <h1>2019</h1>
+          <h2>Baccalaurèat</h2>
+          <h3>Lycee Charles Degaulle</h3>
+          <p>
+            Au Lycée de Charles Degaulle, on obtient notre Baccalaurèat en
+            Sciences Sociales et Humaines après 3 ans d'etudes.
+          </p>
+        </div>
+
+        <div class="card">
+          <h1>2020</h1>
+          <h2>Certification en Bureautique</h2>
+          <h3>AISE</h3>
+          <p>
+            Je me suis certifié en bureautique en 2020, étant passionné
+            d'informatique, j'ai saisi l'impact et l'importance de
+            l'informatique dans l'évolution du milieu professionnel
+          </p>
+        </div>
+        <div class="card">
+          <h1>2021</h1>
+          <h2>Eaux et Fôret</h2>
+          <h3>Programme Xeyu ndaw gni</h3>
+          <p>
+            2 ans d'experience professionnel en tant qu'agent d'appui dans le
+            service forestier qui ont boosté mes softs skills.
+          </p>
+        </div>
+        <div class="card">
+          <h1>2022</h1>
+          <h2>Licence en Anglais</h2>
+          <h3>UNCHK (ex:UVS)</h3>
+          <p>
+            Á l'université, je choisi comme filière l'Anglais en ayant
+            conscience des atouts qu'offre sa maitrise dans le millieu
+            professionnel
+          </p>
+        </div>
+        <div class="card">
+          <h1>2025</h1>
+          <h2>Certification en Front-end</h2>
+          <h3>Force N</h3>
+          <p>
+            Poussé par la passion grandissante en informatique, je me suis
+            certifié en developpeur front-end
+          </p>
+        </div>
+        <div class="card">
+          <h1>2022-2023</h1>
+          <h2>Eaux et Fôret</h2>
+          <h3>Programme Xeyu ndaw gni</h3>
+          <p>
+            un nouveau contrat d'un ans d'experience professionnel en tant
+            qu'agent d'appui dans le service forestier qui ont boosté mes softs
+            skills.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="contact section-card" id="contact">
+      <div class="main-container">
+        <div class="left-box">
+        <h1 class="titles t-contact">Nous contactez</h1>
+          <p class="txt">
+            Si vous avez des questions, des suggestions ou si vous souhaitez
+            discuter de projets potentiels, n'hésitez pas à me contacter via le
+            formulaire ci-dessous. Je suis toujours ouvert aux nouvelles
+            opportunités et collaborations.
+          </p>
+          <div class="contact-info">
+            <div class="item-box">
+              
+            <div class="info-item">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <span>Nom: Mouhamed Sow</span>
+            </div>
+            <div class="info-item">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>Adresse: Saint-Louis, Senegal</span>
+            </div>
+          
+            <div class="info-item">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>Téléphone: +221 78 122 03 91</a></span>
+            </div>
+            </div>
+            <div class="social-title">
+              <h2>Liens Social</h2>
+            <div class="social-links">
+              <a
+                href="https://www.instagram.com/sow_mouhamed7/profilecard/?igsh=MWt3czMxMTh1bHZsMg=="
+                target="blank" ><i class="bx bxl-instagram"></i
+              ></a>
+              <a href="https://wa.me/221781220391?text=Salut%20Mouhamed%20!%20Je%20viens%20de%20ton%20site%20" target="blank"><i class="bx bxl-whatsapp" ></i></a>
+              <a target="blank" href="https://www.facebook.com/profile.php?id=100090453776468"
+                ><i class="bx bxl-facebook" ></i
+              ></a>
+              <a target="blank"
+                href="https://www.linkedin.com/in/mouhamed-sow-5786a633b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                ><i class="bx bxl-linkedin-square" ></i
+              ></a>
+            </div>
+          </div>
+        </div>
+       
+        </div>
+        <div class="comment-box">
+          <p>Laisser un commentaire!</p>
+          <form class="form-c">
+            <input type="text" placeholder="Prenom" />
+            <input type="text" placeholder="Nom" />
+            <input type="email" placeholder="email" required />
+            <textarea rows="10" placeholder="votre commentaire"></textarea>
+            <button type="submit">Envoyez!</button>
+          </form>
+        </div>
+      </div>
+    </section>
+   
+    <!-- Success Popup Modal -->
+    <div id="successPopup" class="popup-overlay">
+      <div class="popup-content">
+        <div class="popup-icon">
+          <i class="bx bx-check-circle"></i>
+        </div>
+        <h3>Message envoyé avec succès!</h3>
+        <p>Merci pour votre message. Je vous répondrai dans les plus brefs délais à l'adresse email que vous avez fournie.</p>
+        <div class="popup-contact-info">
+          <p><strong>Email:</strong> sowhamedou10@gmail.com</p>
+          <p><strong>Réponse:</strong> Sous 24-48h</p>
+        </div>
+        <button class="popup-btn" onclick="closePopup()">Fermer</button>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="customization/main.js"></script>
+  </body>
+</html>
