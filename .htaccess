@@ -1,0 +1,27 @@
+# Forcer HTTPS et activer HSTS
+# Nécessite mod_rewrite et mod_headers, et un certificat SSL configuré
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirige toute requête HTTP vers HTTPS (maintient l'hôte et l'URI)
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # (Optionnel) Rediriger www vers non-www sur HTTPS
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+<IfModule mod_headers.c>
+    # HSTS: forcer les navigateurs à utiliser HTTPS pendant 2 ans
+    Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+</IfModule>
+
+# Empêche l'affichage du listing des répertoires
+Options -Indexes
+
+# Bloquer l'accès aux fichiers sensibles
+<FilesMatch "^\.env$">
+    Require all denied
+</FilesMatch>
